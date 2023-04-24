@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
+
+body{
+  margin: 0;
+  padding: 0;
+  margin-left: 0px;
+  font-family: 'Oswald', sans-serif;
+  background-image: url("../assets/background-img.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+/* Main container */
+div {
+  margin-top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* Logo and image container */
+.main {
+  display: flex;
+  flex-direction: row;
+  margin-left: 88px;
+  
+}
+
+/* Logo */
+h1 {
+  
+  margin-top: 60px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  background: linear-gradient(to right,#012385,#012385,#9E0033,#9E0033);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
+
+/* Image */
+img {
+ 
+  margin-left: auto; /* move the image to the right side */
+
+  
+}
+
+/* Note 1 */
+.Note1 {
+  
+  margin-top: 100px;
+  font-size :50px;
+  font-weight: bold;
+  margin-bottom: 0px;
+  max-width: 500px;
+ 
+}
+
+/* Note 2 */
+.Note2 {
+  color: #575757;
+  font-size: 14px;
+  font-weight: 300;
+  text-align: left;
+  
+}
+
+.startButton{
+  margin-top: 100px;
+  background: linear-gradient(to right,#012385,#9E0033);
+  width: 200px;
+  height: 50px;
+  color: white;
+  font-family:  'Oswald', sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 4px;
+  border: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.loginButton{
+  color: white;
+  position: absolute;
+  background-color:#9E0033;
+  right: 80px;
+  top: 60px;
+  width: 100px;
+  height: 40px;
+  border: none;
+  font-family:  'Oswald', sans-serif;
+  border-radius: 4px;
+  font-size: 16px;
+}
