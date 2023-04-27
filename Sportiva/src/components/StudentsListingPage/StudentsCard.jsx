@@ -1,31 +1,47 @@
-import {Flex, Box, Heading} from "@chakra-ui/react";
+import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import ToolBar from "./ToolBar";
+import data from "./Data";
 
-
-export default function StudentsCard() {
+export default function StudentsListing() {
   return (
     <>
-      <Box
-        bgImage="url('/images/background-img.jpg')"
-        bgPosition="center"
-        bgRepeat="no-repeat"
-        bgSize="cover"
-        h={730}
-        mt={0}
-      >
-        <Flex mt={0}>
-          <Heading
-            size="xl"
-            padding="60px"
-            fontFamily="Oswald" 
-            fontWeight="bold"
-            bgGradient="linear(to right,#9E0033,#9E0033,#012385,#012385)"
-            bgClip="text"
-            color="transparent"
+    <ToolBar />
+    
+        
+        <Flex pt="23px" alignItems="center" justifyContent="center">
+          <Box
+            display="grid"
+            gridTemplateColumns="repeat(5, minmax(0, 1fr))"
+            gap="35px"
           >
-            SPORTIVA
-          </Heading>
+            {data.map((student) => (
+              <Box
+                key={student.id}
+                bg="white"
+                border="1px"
+                borderColor="#E3E3E3"
+                w="240px"
+                h="226px"
+              >
+                <Image
+                  src={student.image}
+                  alt={student.name}
+                  h="124px"
+                  w="205px"
+                  ml="18px"
+                  pt="15px"
+                />
+                <Text fontWeight="bold" ml="18px" pt="15px">
+                  {student.name}
+                </Text>
+                <Text pt="15px" ml="18px">
+                  {student.belt_grade}
+                </Text>
+              </Box>
+            ))}
+          </Box>
         </Flex>
-      </Box>
+    
     </>
   );
 }

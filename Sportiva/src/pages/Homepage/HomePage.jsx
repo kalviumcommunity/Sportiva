@@ -1,5 +1,5 @@
 import "./Homepage.css";
-export default function Welcome() {
+export default function Homepage() {
   return (
     <>
       <div className="mainDiv">
