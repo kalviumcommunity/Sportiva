@@ -66,7 +66,7 @@ img {
   
 }
 
-.startButton{
+.start-button{
   margin-top: 100px;
   background: linear-gradient(to right,#012385,#9E0033);
   width: 200px;
@@ -83,7 +83,7 @@ button:hover {
   cursor: pointer;
 }
 
-.loginButton{
+.login-button{
   color: white;
   position: absolute;
   background-color:#9E0033;
