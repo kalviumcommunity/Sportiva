@@ -1,4 +1,6 @@
 import "./Homepage.css";
+import { Link } from "react-router-dom";
+
 export default function Homepage() {
   return (
     <>
@@ -10,7 +12,9 @@ export default function Homepage() {
             <p className="Note2">
               The ultimate tool for tracking and achieving your athletic goals!
             </p>
-            <button className="startButton">Start Tracking</button>
+            <Link to="/studentsListingPage">
+              <button className="startButton">Start Tracking</button>
+            </Link>
             <button className="loginButton">Login</button>
           </div>
           <div>
