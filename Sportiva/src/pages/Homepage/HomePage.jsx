@@ -13,9 +13,9 @@ export default function Homepage() {
               The ultimate tool for tracking and achieving your athletic goals!
             </p>
             <Link to="/studentsListingPage">
-              <button className="startButton">Start Tracking</button>
+              <button className="start-button">Start Tracking</button>
             </Link>
-            <button className="loginButton">Login</button>
+            <button className="login-button">Login</button>
           </div>
           <div>
             <img
