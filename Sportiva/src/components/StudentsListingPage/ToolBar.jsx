@@ -1,7 +1,7 @@
 import { Input, Image, Box, Flex, Divider } from "@chakra-ui/react";
 import NavBar from "./NavBar";
 
-export default function ToolBar() {
+export default function ToolBar(props) {
   return (
     <>
       <Box px="94px">
@@ -22,10 +22,10 @@ export default function ToolBar() {
             borderRadius="4px"
             mt="103px"
             fontWeight="Regular"
-            
-          ></Input>
+            onChange={props.handleSearch}
+          />
         </Flex>
-        <Divider borderColor="#E3E3E3" mt="29" ></Divider>
+        <Divider borderColor="#E3E3E3" mt="29" />
       </Box>
     </>
   );

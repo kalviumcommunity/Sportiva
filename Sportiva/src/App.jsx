@@ -10,6 +10,7 @@ import theme from "./chakraTheme.jsx";
 function App() {
   return (
     <ChakraProvider theme={theme}>
+
       <StudentsCard />
 
       {/* <Homepage />  */}
@@ -17,6 +18,7 @@ function App() {
       {/* <NavBar/> */}
 
       {/* <ToolBar/> */}
+      
     </ChakraProvider>
   );
 }
