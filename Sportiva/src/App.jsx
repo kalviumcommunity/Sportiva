@@ -1,7 +1,6 @@
 import "./App.css";
-import StudentsCard from "./components/StudentsListingPage/StudentsCard";
+import StudentsCard from "./pages/StudentsListing/StudentsCard";
 import { ChakraProvider } from "@chakra-ui/react";
-
 import "./index.css";
 import theme from "./chakraTheme.jsx";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
