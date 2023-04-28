@@ -1,14 +1,15 @@
 import { Input, Image, Box, Flex, Divider } from "@chakra-ui/react";
 import NavBar from "./NavBar";
 
-export default function ToolBar(props) {
+// eslint-disable-next-line react/prop-types
+export default function ToolBar({handleSearch}) {
   return (
     <>
       <Box px="94px">
         <NavBar />
         <Flex justifyContent="space-between">
           <Image
-            src="/images/addstudent.svg"
+            src="/images/AddStudent.svg"
             alt="img"
             boxSize="40px"
             mt="110px"
@@ -21,8 +22,8 @@ export default function ToolBar(props) {
             borderColor="black"
             borderRadius="4px"
             mt="103px"
-            fontWeight="Regular"
-            onChange={props.handleSearch}
+            fontWeight="regular"
+            onChange={handleSearch}
           />
         </Flex>
         <Divider borderColor="#E3E3E3" mt="29" />

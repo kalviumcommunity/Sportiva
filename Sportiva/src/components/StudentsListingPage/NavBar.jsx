@@ -2,7 +2,7 @@ import { Flex, Box, Heading, Button } from "@chakra-ui/react";
 
 export default function NavBar() {
   return (
-    <>
+    
       <Box
         bgRepeat="no-repeat"
         bgSize="cover"
@@ -31,6 +31,6 @@ export default function NavBar() {
           </Button>
         </Flex>
       </Box>
-    </>
+    
   );
 }

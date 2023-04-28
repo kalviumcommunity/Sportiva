@@ -2,7 +2,7 @@ import "./Homepage.css";
 export default function Homepage() {
   return (
     <>
-      <div className="mainDiv">
+      <div className="main-div">
         <div className="main">
           <div>
             <h1>SPORTIVA</h1>

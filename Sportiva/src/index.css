@@ -1,11 +1,4 @@
 @font-face {
-  font-family: "MyFont";
-  src: url("/fonts/static/Oswald-SemiBold.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
   font-family: "Oswald";
   font-style: normal;
   font-weight: 700;
@@ -24,8 +17,8 @@
   padding: 0;
 }
 
-.Body {
-  background-image: url("/images/background-img.jpg");
+body{
+  background-image: url("/images/Background-img.jpg") !important;
   background-position: center;
   background-size: cover;
   font-family: "Oswald";
