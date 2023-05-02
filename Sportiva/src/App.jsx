@@ -1,5 +1,5 @@
 import "./App.css";
-import StudentsCard from "./components/StudentsListingPage/StudentsCard";
+import StudentsCard from "./pages/StudentsListing/StudentsCard";
 import { ChakraProvider } from "@chakra-ui/react";
 
 import "./index.css";
