@@ -6,7 +6,7 @@ export default function Homepage() {
     <>
       <div className="main-div">
         <div className="main">
-          <div>
+          <div className="left-div">
             <h1>SPORTIVA</h1>
             <p className="Note1">Unleash the inner champion</p>
             <p className="Note2">
@@ -17,7 +17,7 @@ export default function Homepage() {
             </Link>
             <button className="login-button">Login</button>
           </div>
-          <div>
+          <div className="right-div">
             <img
               src="http://www.worldtaekwondo.org/wp-content/uploads/2018/12/DEM_0046.jpg"
               alt="img"

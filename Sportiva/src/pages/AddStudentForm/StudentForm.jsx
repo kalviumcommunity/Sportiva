@@ -1,11 +1,14 @@
 import {Flex, Box, Heading, Image, VStack, FormControl, FormLabel, Input, Button} from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 export default function StudentForm() {
   return (
     <Box bgRepeat="no-repeat" bgSize="cover" paddingTop="20px" px="31px">
       <Flex alignItems="center">
         <Box>
+          <Link to="/StudentsListing">
           <Image src="/images/LeftArrow.png" alt="img" boxSize="40px" />
+          </Link>
         </Box>
         <Flex flex="1" justifyContent="center">
           <Heading
@@ -29,7 +32,7 @@ export default function StudentForm() {
         ml="246px"
         mt="75px"
       >
-        <VStack spacing={4} w="100%">
+        <VStack  w="100%">
           <Flex
             flex="1"
             justifyContent="space-between"
