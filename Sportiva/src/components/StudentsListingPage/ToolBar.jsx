@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 // eslint-disable-next-line react/prop-types
 export default function ToolBar({handleSearch}) {
   return (
-    <>
+  
       <Box px="94px">
         <NavBar />
         <Flex alignItems="flex-end"  justifyContent="space-between">
@@ -33,6 +33,6 @@ export default function ToolBar({handleSearch}) {
         </Flex>
         <Divider borderColor="#E3E3E3" mt="29" />
       </Box>
-    </>
+    
   );
 }

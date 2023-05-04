@@ -1,9 +1,8 @@
 import "./Homepage.css";
-import { Link } from "react-router-dom";
 
 export default function Homepage() {
   return (
-    <>
+  
       <div className="main-div">
         <div className="main">
           <div className="left-div">
@@ -27,6 +26,6 @@ export default function Homepage() {
           </div>
         </div>
       </div>
-    </>
+    
   );
 }

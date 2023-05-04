@@ -13,17 +13,12 @@ import {
 import { Link } from "react-router-dom";
 import data from "../../components/StudentsListingPage/Data";
 import UploadAndDisplayImage from "./ImageUpload";
-// import { Line } from "rc-progress";
-// import Uploady, { useItemProgressListener } from "@rpldy/uploady";
-// import UploadButton from "@rpldy/upload-button";
-// import { createMockSender } from "@rpldy/sender";
 
 export default function StudentForm() {
   const [name, setName] = useState("");
   const [beltGrade, setBeltGrade] = useState("");
   const [yearsOfExp, setYearsOfExp] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
-  // const [image, setImage] = useState("");
 
   function addStudent() {
     const newStudent = {
@@ -31,19 +26,14 @@ export default function StudentForm() {
       name: name,
       yearsOfExp: yearsOfExp,
       belt_grade: beltGrade,
-      // image: image,
       coach_notes: [],
     };
-    // Add new student object to data array
     data.push(newStudent);
-
-    // Reset form fields
     setName("");
     setBeltGrade("");
     setYearsOfExp("");
     setDateOfBirth("");
   }
-
   return (
     <Box bgRepeat="no-repeat" bgSize="cover" paddingTop="20px" px="31px">
       <Flex alignItems="center">
@@ -51,6 +41,7 @@ export default function StudentForm() {
           <Link to="/StudentsListing">
             <Image src="/images/LeftArrow.png" alt="img" boxSize="40px" />
           </Link>
+
         </Box>
         <Flex flex="1" justifyContent="center">
           <Heading
@@ -75,6 +66,7 @@ export default function StudentForm() {
         mt="75px"
       >
         <VStack w="100%">
+
           <Flex
             flex="1"
             justifyContent="space-between"
@@ -103,7 +95,6 @@ export default function StudentForm() {
           </Flex>
           <Flex w="100%">
             <Box
-              // value={image}
               w="210px"
               h="210px"
               bgColor="black"
