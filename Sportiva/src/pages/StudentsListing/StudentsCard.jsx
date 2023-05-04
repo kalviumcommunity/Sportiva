@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
-import ToolBar from "./ToolBar";
-import data from "./Data";
+import ToolBar from "../../components/StudentsListingPage/ToolBar";
+import data from "../../components/StudentsListingPage/Data";
 
-export default function StudentsListing() {
+export default function StudentsCard() {
   const [filteredData, setFilteredData] = useState(data);
 
   const handleSearch = (e) => {

@@ -1,17 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
-
-body{
-  margin: 0;
-  padding: 0;
-  margin-left: 0px;
-  font-family: 'Oswald', sans-serif;
-  background-image: url("../assets/background-img.jpg");
-  background-position: center;
-  background-size: cover;
-}
 
 /* Main container */
-div {
+.right-div ,.left-div , .main-div , .main {
   margin-top: 0px;
   display: flex;
   flex-direction: column;
@@ -44,6 +33,7 @@ h1 {
 img {
  
   margin-left: auto; /* move the image to the right side */
+  height: 100vh;
 
   
 }
@@ -68,7 +58,7 @@ img {
   
 }
 
-.startButton{
+.start-button{
   margin-top: 100px;
   background: linear-gradient(to right,#012385,#9E0033);
   width: 200px;
@@ -85,7 +75,7 @@ button:hover {
   cursor: pointer;
 }
 
-.loginButton{
+.login-button{
   color: white;
   position: absolute;
   background-color:#9E0033;
