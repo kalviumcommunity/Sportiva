@@ -5,10 +5,10 @@ body{
   height: 100vh;
   margin-left: 0px;
   
-}
+} 
 
 /* Main container */
-div {
+.right-div ,.left-div , .main-div , .main {
   margin-top: 0px;
   display: flex;
   flex-direction: column;
