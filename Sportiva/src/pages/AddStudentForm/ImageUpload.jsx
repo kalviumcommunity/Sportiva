@@ -16,10 +16,6 @@ const UploadAndDisplayImage = () => {
           <button onClick={() => setSelectedImage(null)}>Remove</button>
         </div>
       )}
-
-      <br />
-      <br />
-
       <input
         type="file"
         name="myImage"
