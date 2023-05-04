@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Homepage from "./pages/Homepage/HomePage";
 import StudentForm from "./pages/AddStudentForm/StudentForm";
 
+
 function App() {
   return (
     <ChakraProvider theme={theme}>
