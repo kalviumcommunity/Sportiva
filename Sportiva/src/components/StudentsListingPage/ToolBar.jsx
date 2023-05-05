@@ -9,7 +9,7 @@ export default function ToolBar({handleSearch}) {
       <Box px="94px">
         <NavBar />
         <Flex alignItems="flex-end"  justifyContent="space-between">
-          <Link to="/StudentForm">
+          <Link to="/student-form">
           <Image
             src="/images/AddStudent.svg"
             alt="img"

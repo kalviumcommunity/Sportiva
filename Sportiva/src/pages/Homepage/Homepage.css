@@ -29,7 +29,7 @@ h1 {
 }
 
 /* Image */
-img {
+.image {
  
   margin-left: auto; /* move the image to the right side */
   height: 100vh;
