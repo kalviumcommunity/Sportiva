@@ -12,7 +12,7 @@ export default function Homepage() {
             <p className="Note2">
               The ultimate tool for tracking and achieving your athletic goals!
             </p>
-            <Link to="/StudentsListing">
+            <Link to="/students-listing">
               <button className="start-button">Start Tracking</button>
             </Link>
             <button className="login-button">Login</button>
