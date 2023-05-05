@@ -1,7 +1,6 @@
 import { Input, Image, Box, Flex, Divider } from "@chakra-ui/react";
 import NavBar from "./NavBar";
 import { Link } from "react-router-dom";
-// import StudentForm from "../../pages/AddStudentForm/StudentForm";
 
 // eslint-disable-next-line react/prop-types
 export default function ToolBar({handleSearch}) {
@@ -10,7 +9,7 @@ export default function ToolBar({handleSearch}) {
       <Box px="94px">
         <NavBar />
         <Flex alignItems="flex-end"  justifyContent="space-between">
-          <Link to="/StudentForm">
+          <Link to="/student-form">
           <Image
             src="/images/AddStudent.svg"
             alt="img"
