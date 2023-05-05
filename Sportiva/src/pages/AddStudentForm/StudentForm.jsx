@@ -1,15 +1,5 @@
 import { useState } from "react";
-import {
-  Flex,
-  Box,
-  Heading,
-  Image,
-  VStack,
-  FormControl,
-  FormLabel,
-  Input,
-  Button,
-} from "@chakra-ui/react";
+import {Flex,Box,Heading,Image,VStack,FormControl,FormLabel,Input,Button,} from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import data from "../../components/StudentsListingPage/Data";
 import UploadAndDisplayImage from "./ImageUpload";
@@ -19,6 +9,7 @@ export default function StudentForm() {
   const [beltGrade, setBeltGrade] = useState("");
   const [yearsOfExp, setYearsOfExp] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
+  const [selectedImage, setSelectedImage] = useState(null);
 
   function addStudent() {
     const newStudent = {
@@ -26,6 +17,7 @@ export default function StudentForm() {
       name: name,
       yearsOfExp: yearsOfExp,
       belt_grade: beltGrade,
+      image: URL.createObjectURL(selectedImage),
       coach_notes: [],
     };
     data.push(newStudent);
@@ -33,6 +25,7 @@ export default function StudentForm() {
     setBeltGrade("");
     setYearsOfExp("");
     setDateOfBirth("");
+    setSelectedImage("")
   }
   return (
     <Box bgRepeat="no-repeat" bgSize="cover" paddingTop="20px" px="31px">
@@ -78,7 +71,7 @@ export default function StudentForm() {
             <Heading fontSize="26px" ml="495px">
               Add Student
             </Heading>
-            <Link to="/StudentsListing">
+            <Link to="/students-listing">
               <Button
                 h="36px"
                 w="105px"
@@ -95,6 +88,7 @@ export default function StudentForm() {
           </Flex>
           <Flex w="100%">
             <Box
+              value={selectedImage}
               w="210px"
               h="210px"
               bgColor="black"
@@ -103,7 +97,7 @@ export default function StudentForm() {
               mt="65px"
               alignItems="center"
             >
-             <UploadAndDisplayImage/>
+             <UploadAndDisplayImage selectedImage = {selectedImage} setSelectedImage = {setSelectedImage}/>
             </Box>
             <Box w="400px" ml="155px">
               <FormControl mb="22px">

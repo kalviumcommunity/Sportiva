@@ -1,30 +1,34 @@
-import { useState } from "react";
+import {Box,Image,Button,Input,Stack,Center,} from "@chakra-ui/react";
 
-const UploadAndDisplayImage = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
-
+// eslint-disable-next-line react/prop-types
+const UploadAndDisplayImage = ({selectedImage , setSelectedImage}) => {
   return (
-    <div>
+    <Box p={4}>
       {selectedImage && (
-        <div>
-          <img
-            alt="not found"
-            width={"250px"}
-            src={URL.createObjectURL(selectedImage)}
-          />
-          <br />
-          <button onClick={() => setSelectedImage(null)}>Remove</button>
-        </div>
+        <Center>
+          <Box mt={4}>
+            <Image
+              alt="not found"
+              src={URL.createObjectURL(selectedImage)}
+              w="210px" h="210px"
+            />
+            <Stack direction="row" justifyContent="center" mt={2}>
+              <Button size="sm" onClick={() => setSelectedImage(null)}>
+                Remove
+              </Button>
+            </Stack>
+          </Box>
+        </Center>
       )}
-      <input
+      <Input
         type="file"
         name="myImage"
+        mt={4}
         onChange={(event) => {
-        
           setSelectedImage(event.target.files[0]);
         }}
       />
-    </div>
+    </Box>
   );
 };
 

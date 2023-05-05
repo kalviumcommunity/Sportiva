@@ -13,7 +13,7 @@ export default function StudentsListing() {
     );
     setFilteredData(filteredData);
   };
-
+ console.log(filteredData)
   return (
     <>
       <ToolBar handleSearch={handleSearch} />

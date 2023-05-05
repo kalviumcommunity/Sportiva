@@ -1,7 +1,6 @@
 import { Input, Image, Box, Flex, Divider } from "@chakra-ui/react";
 import NavBar from "./NavBar";
 import { Link } from "react-router-dom";
-// import StudentForm from "../../pages/AddStudentForm/StudentForm";
 
 // eslint-disable-next-line react/prop-types
 export default function ToolBar({handleSearch}) {

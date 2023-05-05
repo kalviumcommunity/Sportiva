@@ -14,8 +14,8 @@ function App() {
       <Router>
         <Routes>
         <Route exact path="/" element={<Homepage />} />
-        <Route path="/StudentsListing" element={<StudentsCard />} />
-        <Route path="/StudentForm" element={<StudentForm/>}/>
+        <Route path="/students-listing" element={<StudentsCard />} />
+        <Route path="/student-form" element={<StudentForm/>}/>
         </Routes>
       </Router>
     </ChakraProvider>
