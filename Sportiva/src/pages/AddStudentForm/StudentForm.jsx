@@ -1,18 +1,7 @@
 import { useState } from "react";
-import {
-  Flex,
-  Box,
-  Heading,
-  Image,
-  VStack,
-  FormControl,
-  FormLabel,
-  Input,
-  Button,
-} from "@chakra-ui/react";
+import {Flex,Box,Heading,Image,VStack,FormControl,FormLabel,Input,Button,} from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import data from "../../components/StudentsListingPage/Data";
-import UploadAndDisplayImage from "./ImageUpload";
 
 export default function StudentForm() {
   const [name, setName] = useState("");
@@ -103,7 +92,6 @@ export default function StudentForm() {
               mt="65px"
               alignItems="center"
             >
-             <UploadAndDisplayImage/>
             </Box>
             <Box w="400px" ml="155px">
               <FormControl mb="22px">
