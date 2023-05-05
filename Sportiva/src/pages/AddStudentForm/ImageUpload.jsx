@@ -1,7 +1,7 @@
 import {Box,Image,Button,Input,Stack,Center,Flex,} from "@chakra-ui/react";
 import { useRef } from "react";
+import PropTypes from "prop-types";
 
-// eslint-disable-next-line react/prop-types
 const UploadAndDisplayImage = ({ selectedImage, setSelectedImage }) => {
   const imageButtonRef = useRef();
   return (
@@ -48,6 +48,11 @@ const UploadAndDisplayImage = ({ selectedImage, setSelectedImage }) => {
       />
     </Box>
   );
+};
+
+UploadAndDisplayImage.propTypes = {
+  selectedImage: PropTypes.object,
+  setSelectedImage: PropTypes.func.isRequired
 };
 
 export default UploadAndDisplayImage;
