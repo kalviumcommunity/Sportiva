@@ -67,7 +67,7 @@ export default function StudentForm() {
             <Heading fontSize="26px" ml="495px">
               Add Student
             </Heading>
-            <Link to="/StudentsListing">
+            <Link to="/students-listing">
               <Button
                 h="36px"
                 w="105px"
