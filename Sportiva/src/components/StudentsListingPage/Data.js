@@ -4,7 +4,7 @@ const data = [
     image: "/images/CarolineForbes.png",
     name: "Caroline Forbes",
     belt_grade: "Black 2nd Dan",
-    yearsOfExp: "2 years",
+    years_of_exp: "2 years",
     coach_notes: [
       {
         coach_id: "123",

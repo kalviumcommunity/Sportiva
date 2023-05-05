@@ -24,7 +24,7 @@ export default function StudentForm() {
     const newStudent = {
       id: data.length.toString(),
       name: name,
-      yearsOfExp: yearsOfExp,
+      years_of_exp: yearsOfExp,
       belt_grade: beltGrade,
       coach_notes: [],
     };
