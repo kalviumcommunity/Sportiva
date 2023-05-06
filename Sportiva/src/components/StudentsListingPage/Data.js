@@ -10,11 +10,16 @@ const data = [
         coach_id: "123",
         date: "15/05/23",
         note: "Good work",
-        speed: "",
-        stamina: "",
-        flexibility: "",
-        agility: "",
-        reflex: "",
+        skills:[
+          {
+          speed: [0,1,4],
+          footwork: [0,1,4],
+          stamina: [0,1,4],
+          flexibility: [0,1,4],
+          agility: [0,1,4],
+          reflex: [0,1,4],
+            }
+          ]
       },
     ],
   },
@@ -29,11 +34,16 @@ const data = [
         coach_id: "123",
         date: "15/05/23",
         note: "Good work",
-        speed: "",
-        stamina: "",
-        flexibility: "",
-        agility: "",
-        reflex: "",
+        skills:[
+          {
+          speed: [0,1,4],
+          footwork: [0,1,4],
+          stamina: [0,1,4],
+          flexibility: [0,1,4],
+          agility: [0,1,4],
+          reflex: [0,1,4],
+            }
+          ]
       },
     ],
   },
@@ -48,11 +58,16 @@ const data = [
         coach_id: "123",
         date: "15/05/23",
         note: "Good work",
-        speed: "",
-        stamina: "",
-        flexibility: "",
-        agility: "",
-        reflex: "",
+        skills:[
+        {
+        speed: [0,1,4],
+        footwork: [0,1,4],
+        stamina: [0,1,4],
+        flexibility: [0,1,4],
+        agility: [0,1,4],
+        reflex: [0,1,4],
+          }
+        ]
       },
     ],
   },
@@ -67,11 +82,16 @@ const data = [
         coach_id: "123",
         date: "15/05/23",
         note: "Good work",
-        speed: "",
-        stamina: "",
-        flexibility: "",
-        agility: "",
-        reflex: "",
+        skills:[
+        {
+        speed: [0,1,4],
+        footwork: [0,1,4],
+        stamina: [0,1,4],
+        flexibility: [0,1,4],
+        agility: [0,1,4],
+        reflex: [0,1,4],
+          }
+        ]
       },
     ],
   },
@@ -86,11 +106,16 @@ const data = [
         coach_id: "123",
         date: "15/05/23",
         note: "Good work",
-        speed: "",
-        stamina: "",
-        flexibility: "",
-        agility: "",
-        reflex: "",
+        skills:[
+        {
+        speed: [0,1,4],
+        footwork: [0,1,4],
+        stamina: [0,1,4],
+        flexibility: [0,1,4],
+        agility: [0,1,4],
+        reflex: [0,1,4],
+          }
+        ]
       },
     ],
   },
@@ -105,11 +130,16 @@ const data = [
         coach_id: "123",
         date: "15/05/23",
         note: "Good work",
-        speed: "",
-        stamina: "",
-        flexibility: "",
-        agility: "",
-        reflex: "",
+        skills:[
+          {
+          speed: [0,1,4],
+          footwork: [0,1,4],
+          stamina: [0,1,4],
+          flexibility: [0,1,4],
+          agility: [0,1,4],
+          reflex: [0,1,4],
+            }
+          ]
       },
     ],
   },
@@ -124,11 +154,16 @@ const data = [
         coach_id: "123",
         date: "15/05/23",
         note: "Good work",
-        speed: "",
-        stamina: "",
-        flexibility: "",
-        agility: "",
-        reflex: "",
+        skills:[
+          {
+          speed: [0,1,4],
+          footwork: [0,1,4],
+          stamina: [0,1,4],
+          flexibility: [0,1,4],
+          agility: [0,1,4],
+          reflex: [0,1,4],
+            }
+          ]
       },
     ],
   },
@@ -143,11 +178,16 @@ const data = [
         coach_id: "123",
         date: "15/05/23",
         note: "Good work",
-        speed: "",
-        stamina: "",
-        flexibility: "",
-        agility: "",
-        reflex: "",
+        skills:[
+          {
+          speed: [0,1,4],
+          footwork: [0,1,4],
+          stamina: [0,1,4],
+          flexibility: [0,1,4],
+          agility: [0,1,4],
+          reflex: [0,1,4],
+            }
+          ]
       },
     ],
   },
@@ -162,11 +202,16 @@ const data = [
         coach_id: "123",
         date: "15/05/23",
         note: "Good work",
-        speed: "",
-        stamina: "",
-        flexibility: "",
-        agility: "",
-        reflex: "",
+        skills:[
+        {
+        speed: [0,1,4],
+        footwork: [0,1,4],
+        stamina: [0,1,4],
+        flexibility: [0,1,4],
+        agility: [0,1,4],
+        reflex: [0,1,4],
+          }
+        ]
       },
     ],
   },
@@ -181,11 +226,16 @@ const data = [
         coach_id: "123",
         date: "15/05/23",
         note: "Good work",
-        speed: "",
-        stamina: "",
-        flexibility: "",
-        agility: "",
-        reflex: "",
+        skills:[
+          {
+          speed: [0,1,4],
+          footwork: [0,1,4],
+          stamina: [0,1,4],
+          flexibility: [0,1,4],
+          agility: [0,1,4],
+          reflex: [0,1,4],
+            }
+          ]
       },
     ],
   },
