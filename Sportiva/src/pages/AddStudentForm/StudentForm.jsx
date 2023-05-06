@@ -1,11 +1,36 @@
-import {Flex, Box, Heading, Image, VStack, FormControl, FormLabel, Input, Button} from "@chakra-ui/react";
+import { useState } from "react";
+import {Flex,Box,Heading,Image,VStack,FormControl,FormLabel,Input,Button,} from "@chakra-ui/react";
+import { Link } from "react-router-dom";
+import data from "../../components/StudentsListingPage/Data";
 
 export default function StudentForm() {
+  const [name, setName] = useState("");
+  const [beltGrade, setBeltGrade] = useState("");
+  const [yearsOfExp, setYearsOfExp] = useState("");
+  const [dateOfBirth, setDateOfBirth] = useState("");
+
+  function addStudent() {
+    const newStudent = {
+      id: data.length.toString(),
+      name: name,
+      years_of_exp: yearsOfExp,
+      belt_grade: beltGrade,
+      coach_notes: [],
+    };
+    data.push(newStudent);
+    setName("");
+    setBeltGrade("");
+    setYearsOfExp("");
+    setDateOfBirth("");
+  }
   return (
     <Box bgRepeat="no-repeat" bgSize="cover" paddingTop="20px" px="31px">
       <Flex alignItems="center">
         <Box>
-          <Image src="/images/LeftArrow.png" alt="img" boxSize="40px" />
+          <Link to="/students-listing">
+            <Image src="/images/LeftArrow.png" alt="img" boxSize="40px" />
+          </Link>
+
         </Box>
         <Flex flex="1" justifyContent="center">
           <Heading
@@ -29,7 +54,8 @@ export default function StudentForm() {
         ml="246px"
         mt="75px"
       >
-        <VStack spacing={4} w="100%">
+        <VStack w="100%">
+
           <Flex
             flex="1"
             justifyContent="space-between"
@@ -38,39 +64,83 @@ export default function StudentForm() {
             px="31px"
             mb="50px"
           >
-            <Heading fontSize="26px" ml="495px" >
+            <Heading fontSize="26px" ml="495px">
               Add Student
             </Heading>
-            <Button
-              h="36px"
-              w="105px"
-              ml="auto"
-              bg="#AD0036"
-              color="white"
-              fontSize={12}
-              fontWeight="semibold"
-            >
-              Add
-            </Button>
+            <Link to="/students-listing">
+              <Button
+                h="36px"
+                w="105px"
+                ml="auto"
+                bg="#AD0036"
+                color="white"
+                fontSize={12}
+                fontWeight="semibold"
+                onClick={addStudent}
+              >
+                Add
+              </Button>
+            </Link>
           </Flex>
-          <Flex  w="100%"   >
-            <Box w="210px" h="210px" bgColor="black" borderRadius="10px" ml="159px" mt="65px"></Box>
-            <Box w="400px" ml="155px"  >
+          <Flex w="100%">
+            <Box
+              w="210px"
+              h="210px"
+              bgColor="black"
+              borderRadius="10px"
+              ml="159px"
+              mt="65px"
+              alignItems="center"
+            >
+            </Box>
+            <Box w="400px" ml="155px">
               <FormControl mb="22px">
-                <FormLabel fontWeight="semibold">Email address</FormLabel>
-                <Input type="email" h="40px" border="1px" borderColor="black" borderRadius="none" />
+                <FormLabel fontWeight="semibold">Name</FormLabel>
+                <Input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  h="40px"
+                  border="1px"
+                  borderColor="black"
+                  borderRadius="none"
+                />
               </FormControl>
-              <FormControl mb="22px" >
-                <FormLabel fontWeight="semibold">Date of birth</FormLabel>
-                <Input type="dd-mm-yy" h="40px" border="1px" borderColor="black" borderRadius="none" />
+              <FormControl mb="22px">
+                <FormLabel fontWeight="semibold">Date of Birth</FormLabel>
+                <Input
+                  type="text"
+                  value={dateOfBirth}
+                  onChange={(e) => setDateOfBirth(e.target.value)}
+                  h="40px"
+                  border="1px"
+                  borderColor="black"
+                  borderRadius="none"
+                />
               </FormControl>
               <FormControl mb="22px">
                 <FormLabel fontWeight="semibold">Belt grade</FormLabel>
-                <Input type="password" h="40px" border="1px" borderColor="black" borderRadius="none"  />
+                <Input
+                  type="text"
+                  value={beltGrade}
+                  onChange={(e) => setBeltGrade(e.target.value)}
+                  h="40px"
+                  border="1px"
+                  borderColor="black"
+                  borderRadius="none"
+                />
               </FormControl>
               <FormControl>
                 <FormLabel fontWeight="semibold">Years of experience</FormLabel>
-                <Input type="password" h="40px" border="1px" borderColor="black" borderRadius="none"  />
+                <Input
+                  type="number"
+                  value={yearsOfExp}
+                  onChange={(e) => setYearsOfExp(e.target.value)}
+                  h="40px"
+                  border="1px"
+                  borderColor="black"
+                  borderRadius="none"
+                />
               </FormControl>
             </Box>
           </Flex>
