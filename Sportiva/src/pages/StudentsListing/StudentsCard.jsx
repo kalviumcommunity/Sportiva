@@ -26,7 +26,7 @@ export default function StudentsListing() {
           {filteredData.map((student) => (
             <Box
               key={student.id}
-              bg="#F9EEF9"
+              bg="white"
               border="1px"
               borderColor="#C7C7C7"
               w="240px"

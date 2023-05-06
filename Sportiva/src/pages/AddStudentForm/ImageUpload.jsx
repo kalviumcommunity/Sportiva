@@ -31,6 +31,8 @@ const UploadAndDisplayImage = ({ selectedImage, setSelectedImage }) => {
         }}
       >
         <Image
+          position={"absolute"}
+          
           src="/images/UploadIcon.png"
           htmlHeight="40px"
           htmlWidth="40px"

@@ -31,7 +31,7 @@ export default function StudentForm() {
     <Box bgRepeat="no-repeat" bgSize="cover" paddingTop="20px" px="31px">
       <Flex alignItems="center">
         <Box>
-          <Link to="/StudentsListing">
+          <Link to="/students-listing">
             <Image src="/images/LeftArrow.png" alt="img" boxSize="40px" />
           </Link>
 
@@ -96,6 +96,8 @@ export default function StudentForm() {
               ml="159px"
               mt="65px"
               alignItems="center"
+              overflow='hidden'
+            
             >
              <UploadAndDisplayImage selectedImage = {selectedImage} setSelectedImage = {setSelectedImage}/>
             </Box>
