@@ -14,8 +14,6 @@
     "@chakra-ui/vue": "^0.13.1",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
-    "@rpldy/upload-button": "^1.4.1",
-    "@rpldy/uploady": "^1.4.1",
     "framer-motion": "^4.1.17",
     "prop-types": "^15.8.1",
     "rc-progress": "^3.4.1",

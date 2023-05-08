@@ -1,5 +1,5 @@
-import { useState } from "react";
-import {Flex,Box,Heading,Image,VStack,FormControl,FormLabel,Input,Button,} from "@chakra-ui/react";
+import { useState, useRef } from "react";
+import {Flex,Box,Heading,Image,VStack,FormControl,FormLabel,Input,Button} from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import data from "../../components/StudentsListingPage/Data";
 import UploadAndDisplayImage from "./ImageUpload";
@@ -10,6 +10,7 @@ export default function StudentForm() {
   const [yearsOfExp, setYearsOfExp] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
+  const imageButtonRef = useRef();
 
   function addStudent() {
     const newStudent = {
@@ -25,7 +26,7 @@ export default function StudentForm() {
     setBeltGrade("");
     setYearsOfExp("");
     setDateOfBirth("");
-    setSelectedImage("")
+    setSelectedImage("");
   }
   return (
     <Box bgRepeat="no-repeat" bgSize="cover" paddingTop="20px" px="31px">
@@ -34,7 +35,6 @@ export default function StudentForm() {
           <Link to="/students-listing">
             <Image src="/images/LeftArrow.png" alt="img" boxSize="40px" />
           </Link>
-
         </Box>
         <Flex flex="1" justifyContent="center">
           <Heading
@@ -59,7 +59,6 @@ export default function StudentForm() {
         mt="75px"
       >
         <VStack w="100%">
-
           <Flex
             flex="1"
             justifyContent="space-between"
@@ -75,7 +74,6 @@ export default function StudentForm() {
               <Button
                 h="36px"
                 w="105px"
-                ml="auto"
                 bg="#AD0036"
                 color="white"
                 fontSize={12}
@@ -88,6 +86,7 @@ export default function StudentForm() {
           </Flex>
           <Flex w="100%">
             <Box
+              id="summa"
               value={selectedImage}
               w="210px"
               h="210px"
@@ -96,10 +95,18 @@ export default function StudentForm() {
               ml="159px"
               mt="65px"
               alignItems="center"
-              overflow='hidden'
-            
+              overflow="hidden"
+              padding="0px"
+              onClick={() => {
+                imageButtonRef.current.click();
+              }}
             >
-             <UploadAndDisplayImage selectedImage = {selectedImage} setSelectedImage = {setSelectedImage}/>
+              <UploadAndDisplayImage
+                padding="0px"
+                selectedImage={selectedImage}
+                setSelectedImage={setSelectedImage}
+                imageButtonRef={imageButtonRef}
+              />
             </Box>
             <Box w="400px" ml="155px">
               <FormControl mb="22px">

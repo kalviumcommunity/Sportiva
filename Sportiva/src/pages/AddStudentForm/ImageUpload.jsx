@@ -1,44 +1,46 @@
-import {Box,Image,Button,Input,Stack,Center,Flex,} from "@chakra-ui/react";
-import { useRef } from "react";
+import { Box, Image, Input, Center, Flex } from "@chakra-ui/react";
 import PropTypes from "prop-types";
 
-const UploadAndDisplayImage = ({ selectedImage, setSelectedImage }) => {
-  const imageButtonRef = useRef();
+const UploadAndDisplayImage = ({
+  selectedImage,
+  setSelectedImage,
+  imageButtonRef,
+}) => {
   return (
-    <Box p={4}>
+    <Box>
       {selectedImage && (
-        <Center>
-          <Box mt={4}>
-            {/* <Image              
-              alt="not found"
-              src={URL.createObjectURL(selectedImage)}
-              w="210px"
-              h="210px"
-            /> */}
-            <img src={URL.createObjectURL(selectedImage)} />
-            <Stack direction="row" justifyContent="center" mt={2}>
-              <Button size="sm" onClick={() => setSelectedImage(null)}>
-                Remove
-              </Button>
-            </Stack>
-          </Box>
-        </Center>
+          <Center>
+            <Box>
+              <Image
+                h="210px"
+                w="210px"
+                src={URL.createObjectURL(selectedImage)}
+                position="relative"
+                t="10px"
+                padding="0px"
+                borderRadius="10px"
+              />
+            </Box>
+          </Center>
       )}
-      <Flex
-        ml="70px"
-        mt="70px"
-        onClick={() => {
-          imageButtonRef.current.click();
-        }}
-      >
-        <Image
-          position={"absolute"}
-          
-          src="/images/UploadIcon.png"
-          htmlHeight="40px"
-          htmlWidth="40px"
-        />
-      </Flex>
+      {!selectedImage && (
+        <Flex
+          ml="70px"
+          mt="70px"
+          onClick={() => {
+            imageButtonRef.current.click();
+          }}
+        >
+          <Image
+            position="absolute"
+            mt="10px"
+            ml="15px"
+            src="/images/UploadIcon.png"
+            htmlHeight="40px"
+            htmlWidth="40px"
+          />
+        </Flex>
+      )}
       <Input
         type="file"
         name="myImage"
@@ -47,7 +49,7 @@ const UploadAndDisplayImage = ({ selectedImage, setSelectedImage }) => {
         onChange={(event) => {
           setSelectedImage(event.target.files[0]);
         }}
-        display={"none"}
+        display="none"
       />
     </Box>
   );
@@ -55,7 +57,8 @@ const UploadAndDisplayImage = ({ selectedImage, setSelectedImage }) => {
 
 UploadAndDisplayImage.propTypes = {
   selectedImage: PropTypes.object,
-  setSelectedImage: PropTypes.func.isRequired
+  imageButtonRef: PropTypes.func.isRequired,
+  setSelectedImage: PropTypes.func.isRequired,
 };
 
 export default UploadAndDisplayImage;

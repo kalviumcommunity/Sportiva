@@ -18,11 +18,11 @@
 }
 
 body{
-  background-image: url("/images/Background-img.jpg") !important;
-  background-position: center;
-  background-size: cover;
+  /* background-image: url("/images/Background-img.jpg") !important;
+  background-position: center !important;
+  background-size:cover !important; */
   font-family: "Oswald";
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat !important; */
   height: 100%;
   width: 100%;
 }
