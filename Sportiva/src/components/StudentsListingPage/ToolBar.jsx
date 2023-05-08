@@ -15,7 +15,7 @@ function ToolBar({ handleSearch }) {
             alt="img"
             boxSize="40px"
             mt="110px"
-            mr="1000px"
+
           />
         </Link>
         <Input
