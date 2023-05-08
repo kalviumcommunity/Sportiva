@@ -9,12 +9,13 @@ const UploadAndDisplayImage = ({ selectedImage, setSelectedImage }) => {
       {selectedImage && (
         <Center>
           <Box mt={4}>
-            <Image
+            {/* <Image              
               alt="not found"
               src={URL.createObjectURL(selectedImage)}
               w="210px"
               h="210px"
-            />
+            /> */}
+            <img src={URL.createObjectURL(selectedImage)} />
             <Stack direction="row" justifyContent="center" mt={2}>
               <Button size="sm" onClick={() => setSelectedImage(null)}>
                 Remove
