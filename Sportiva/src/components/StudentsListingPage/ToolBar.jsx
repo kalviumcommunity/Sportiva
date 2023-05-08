@@ -1,15 +1,22 @@
 import { Input, Image, Box, Flex, Divider } from "@chakra-ui/react";
 import NavBar from "./NavBar";
-import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 function ToolBar({ handleSearch }) {
   return (
+  
     <Box px="94px">
       <NavBar />
       <Flex alignItems="flex-end" justifyContent="space-between">
         <Link to="/student-form">
-          <Image src="/images/AddStudent.svg" alt="img" boxSize="40px" />
+          <Image
+            src="/images/AddStudent.svg"
+            alt="img"
+            boxSize="40px"
+            mt="110px"
+            mr="1000px"
+          />
         </Link>
         <Input
           placeholder="Find students"
@@ -33,3 +40,4 @@ ToolBar.propTypes = {
 };
 
 export default ToolBar;
+

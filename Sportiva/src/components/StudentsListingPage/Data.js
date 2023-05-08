@@ -4,7 +4,7 @@ const data = [
     image: "/images/CarolineForbes.png",
     name: "Caroline Forbes",
     belt_grade: "Black 2nd Dan",
-    yearsOfExp: "2 years",
+    years_of_exp: "2 years",
     coach_notes: [
       {
         coach_id: "123",
@@ -28,7 +28,7 @@ const data = [
     image: "/images/ElijahMikealson.png",
     name: "Elijah Mikealson",
     belt_grade: "Black 2nd Dan",
-    yearsOfExp: "2 years",
+    years_of_exp: "2 years",
     coach_notes: [
       {
         coach_id: "123",
@@ -52,7 +52,7 @@ const data = [
     image: "/images/KlausMikealson.png",
     name: "Klaus Mikealson",
     belt_grade: "Black 2nd Dan",
-    yearsOfExp: "2 years",
+    years_of_exp: "2 years",
     coach_notes: [
       {
         coach_id: "123",
@@ -76,7 +76,7 @@ const data = [
     image: "/images/KolMikealson.png",
     name: "Kol Mikealson",
     belt_grade: "Black 2nd Dan",
-    yearsOfExp: "2 years",
+    years_of_exp: "2 years",
     coach_notes: [
       {
         coach_id: "123",
@@ -100,7 +100,7 @@ const data = [
     image: "/images/FinMikealson.png",
     name: "Fin Mikealson",
     belt_grade: "Black 2nd Dan",
-    yearsOfExp: "2 years",
+    years_of_exp: "2 years",
     coach_notes: [
       {
         coach_id: "123",
@@ -124,7 +124,7 @@ const data = [
     image: "/images/RebekhaMikealson.png",
     name: "Rebekha Mikealson",
     belt_grade: "Black 2nd Dan",
-    yearsOfExp: "2 years",
+    years_of_exp: "2 years",
     coach_notes: [
       {
         coach_id: "123",
@@ -148,7 +148,7 @@ const data = [
     image: "/images/HopeMikealson.png",
     name: "Hope Mikealson",
     belt_grade: "Black 2nd Dan",
-    yearsOfExp: "2 years",
+    years_of_exp: "2 years",
     coach_notes: [
       {
         coach_id: "123",
@@ -172,7 +172,7 @@ const data = [
     image: "/images/HayleyMikealson.png",
     name: "Hayley Mikealson",
     belt_grade: "Black 2nd Dan",
-    yearsOfExp: "2 years",
+    years_of_exp: "2 years",
     coach_notes: [
       {
         coach_id: "123",
@@ -196,7 +196,7 @@ const data = [
     image: "/images/MarshallMikealson.png",
     name: "Marshall Mikealson",
     belt_grade: "Black 2nd Dan",
-    yearsOfExp: "2 years",
+    years_of_exp: "2 years",
     coach_notes: [
       {
         coach_id: "123",
@@ -220,7 +220,7 @@ const data = [
     image: "/images/FreyaMikealson.png",
     name: "Freya Mikealson",
     belt_grade: "Black 2nd Dan",
-    yearsOfExp: "2 years",
+    years_of_exp: "2 years",
     coach_notes: [
       {
         coach_id: "123",

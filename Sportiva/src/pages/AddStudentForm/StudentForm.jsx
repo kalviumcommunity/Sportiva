@@ -1,8 +1,9 @@
+import { useState } from "react";
+import {Flex,Box,Heading,Image,VStack,FormControl,FormLabel,Input,Button,Link} from "@chakra-ui/react";
 import { useState, useRef } from "react";
 import {Flex,Box,Heading,Image,VStack,FormControl,FormLabel,Input,Button} from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import data from "../../components/StudentsListingPage/Data";
-import UploadAndDisplayImage from "./ImageUpload";
 
 export default function StudentForm() {
   const [name, setName] = useState("");
@@ -16,7 +17,7 @@ export default function StudentForm() {
     const newStudent = {
       id: data.length.toString(),
       name: name,
-      yearsOfExp: yearsOfExp,
+      years_of_exp: yearsOfExp,
       belt_grade: beltGrade,
       image: URL.createObjectURL(selectedImage),
       coach_notes: [],
@@ -32,6 +33,7 @@ export default function StudentForm() {
     <Box bgRepeat="no-repeat" bgSize="cover" paddingTop="20px" px="31px">
       <Flex alignItems="center">
         <Box>
+          <Link to="/students-listing">
           <Link to="/students-listing">
             <Image src="/images/LeftArrow.png" alt="img" boxSize="40px" />
           </Link>
@@ -70,6 +72,7 @@ export default function StudentForm() {
             <Heading fontSize="26px" ml="495px">
               Add Student
             </Heading>
+            <Link to="/students-listing">
             <Link to="/students-listing">
               <Button
                 h="36px"
