@@ -86,7 +86,6 @@ export default function StudentForm() {
           </Flex>
           <Flex w="100%">
             <Box
-              id="summa"
               value={selectedImage}
               w="210px"
               h="210px"
