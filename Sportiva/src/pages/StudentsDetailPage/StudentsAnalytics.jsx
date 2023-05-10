@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Text, Flex } from "@chakra-ui/react";
 import data from "../../components/StudentsListingPage/Data";
 import LineGraph from "../../components/StudentsDetail/Graph";
 import { useParams } from "react-router-dom";
@@ -10,7 +10,6 @@ export default function StudentAnalytics() {
   if (!student) {
     return <Box>Student not found.</Box>;
   }
-  // console.log(student.coach_notes);
 
   const parseStudentData = (coachNotes) => {
     const skills = {
@@ -22,31 +21,52 @@ export default function StudentAnalytics() {
       reflex: [],
     };
 
-    coachNotes.forEach(note => {
-      skills.speed.push(note.skills.speed)
-      skills.footwork.push(note.skills.footwork)
-      skills.stamina.push(note.skills.stamina)
-      skills.agility.push(note.skills.agility)
-      skills.flexibility.push(note.skills.flexibility)
-      skills.reflex.push(note.skills.reflex)
-    })
+    coachNotes.forEach((note) => {
+      skills.speed.push(note.skills.speed);
+      skills.footwork.push(note.skills.footwork);
+      skills.stamina.push(note.skills.stamina);
+      skills.agility.push(note.skills.agility);
+      skills.flexibility.push(note.skills.flexibility);
+      skills.reflex.push(note.skills.reflex);
+    });
 
-    return skills
-  }
+    return skills;
+  };
 
-  const parsedData = parseStudentData(student.coach_notes)
-  console.log(parsedData.speed)
-  // console.log(parseStudentData(student.coach_notes))
-  return(
+  const parsedData = parseStudentData(student.coach_notes);
+
+  return (
     <Box>
-      <NavBar/>
-       <LineGraph data={parsedData.speed} />
-       <LineGraph data={parsedData.speed} />
-       <LineGraph data={parsedData.speed} />
-       <LineGraph data={parsedData.speed} />
-       <LineGraph data={parsedData.speed} />
-       <LineGraph data={parsedData.speed} />
-
+      <NavBar />
+      <Text>Your Progress</Text>
+      <Flex justifyContent="center" mt={4}>
+        <Box display="flex" flexDirection="column">
+          <Flex>
+            <Box width="50%" pr={2} mb="41px" mr="41px">
+              <LineGraph data={parsedData.speed} title="Speed" />
+            </Box>
+            <Box width="50%" pl={2} mb="41px" mr="41px">
+              <LineGraph data={parsedData.footwork} title="Footwork" />
+            </Box>
+          </Flex>
+          <Flex>
+            <Box width="50%" pr={2} mb="41px" mr="41px">
+              <LineGraph data={parsedData.stamina} title="Stamina" />
+            </Box>
+            <Box width="50%" pl={2} mb="41px" mr="41px">
+              <LineGraph data={parsedData.agility} title="Agility" />
+            </Box>
+          </Flex>
+          <Flex>
+            <Box width="50%" pr={2} mb="41px" mr="41px">
+              <LineGraph data={parsedData.flexibility} title="Flexibility" />
+            </Box>
+            <Box width="50%" pl={2} mb="41px" mr="41px">
+              <LineGraph data={parsedData.reflex} title="Reflex" />
+            </Box>
+          </Flex>
+        </Box>
+      </Flex>
     </Box>
-  )
+  );
 }
