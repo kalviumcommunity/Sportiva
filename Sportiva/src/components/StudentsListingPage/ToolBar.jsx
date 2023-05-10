@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 function ToolBar({ handleSearch }) {
   return (
+  
     <Box px="94px">
       <NavBar />
       <Flex alignItems="flex-end" justifyContent="space-between">
@@ -14,7 +15,7 @@ function ToolBar({ handleSearch }) {
             alt="img"
             boxSize="40px"
             mt="110px"
-            mr="1000px"
+
           />
         </Link>
         <Input
@@ -39,3 +40,4 @@ ToolBar.propTypes = {
 };
 
 export default ToolBar;
+

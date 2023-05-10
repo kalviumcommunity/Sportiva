@@ -13,7 +13,6 @@ export default function StudentsCard() {
     );
     setFilteredData(filteredData);
   };
-
   return (
     <>
       <ToolBar handleSearch={handleSearch} />
@@ -28,9 +27,14 @@ export default function StudentsCard() {
               key={student.id}
               bg="white"
               border="1px"
-              borderColor="#E3E3E3"
+              borderColor="#C7C7C7"
               w="240px"
               h="226px"
+              transition="all 0.1s ease-in-out"
+              _hover={{
+                boxShadow: "0px 0px 30px rgba(0, 0, 0, 0.1)",
+                transform: "scale(1.12)"
+              }}
             >
               <Image
                 src={student.image}

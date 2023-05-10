@@ -1,4 +1,5 @@
 import { Flex, Box, Heading, Button } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
   return (
@@ -19,6 +20,7 @@ export default function NavBar() {
               SPORTIVA
             </Heading>
           </Flex>
+          <Link to="/">
           <Button
             bg="#AD0036"
             color="white"
@@ -29,6 +31,7 @@ export default function NavBar() {
           >
             Sign out
           </Button>
+          </Link>
         </Flex>
       </Box>
     
