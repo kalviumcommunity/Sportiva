@@ -9,7 +9,7 @@ export default function StudentAnalytics() {
   if (!student) {
     return <Box>Student not found.</Box>;
   }
-  console.log(student.coach_notes);
+  // console.log(student.coach_notes);
 
   const parseStudentData = (coachNotes) => {
     const skills = {
@@ -21,11 +21,25 @@ export default function StudentAnalytics() {
       reflex: [],
     };
 
-    
+    coachNotes.forEach(note => {
+      skills.speed.push(note.skills.speed)
+      skills.footwork.push(note.skills.footwork)
+      skills.stamina.push(note.skills.stamina)
+      skills.agility.push(note.skills.agility)
+      skills.flexibility.push(note.skills.flexibility)
+      skills.reflex.push(note.skills.reflex)
+    })
 
     return skills
   }
 
-  console.log(parseStudentData(student.coach_notes))
-  // return <LineGraph skills={skills} />;
+  const parsedData = parseStudentData(student.coach_notes)
+  console.log(parsedData.speed)
+  // console.log(parseStudentData(student.coach_notes))
+  return(
+    <Box>
+       <LineGraph data={parsedData.speed} />
+      
+    </Box>
+  )
 }

@@ -1,26 +1,27 @@
 import { useState } from "react";
 import {LineChart,Line,XAxis,YAxis,CartesianGrid,Tooltip,Legend,} from "recharts";
-import { Box, Input, Button } from "@chakra-ui/react";
+import { Box, Input} from "@chakra-ui/react";
+import NavBar from "./NavBar";
+import PropTypes from "prop-types";
+// const initialData = [0, 1, 4, 5, 8, 2];
 
-const initialData = [0, 1, 4, 5, 8, 2];
-
-export default function LineGraph() {
-  const [data, setData] = useState(initialData);
+export default function LineGraph({data}) {
+  // const [OldData, setData] = useState();
   const [newPoints, setNewPoints] = useState("");
 
   const handleChange = (e) => {
     setNewPoints(e.target.value);
   };
 
-  const handleSubmit = () => {
-    const newData = [...data];
-    newData.push({
-      week: `Week ${data.length + 1}`,
-      points: parseInt(newPoints),
-    });
-    setData(newData);
-    setNewPoints("");
-  };
+  // const handleSubmit = () => {
+  //   const newData = [...data];
+  //   newData.push({
+  //     week: `Week ${OldData.length + 1}`,
+  //     points: parseInt(newPoints),
+  //   });
+  //   setData(newData);
+  //   setNewPoints("");
+  // };
 
   const getParsedData = (_data) => {
     return _data.map((val, index) => ({
@@ -31,6 +32,7 @@ export default function LineGraph() {
 
   return (
     <Box>
+      <NavBar/>
       <LineChart
         width={300}
         height={200}
@@ -55,10 +57,14 @@ export default function LineGraph() {
           borderColor="black"
           borderRadius="none"
         />
-        <Button onClick={handleSubmit} ml={4}>
+        {/* <Button onClick={handleSubmit} ml={4}>
           Week {data.length + 1}
-        </Button>
+        </Button> */}
       </Box>
     </Box>
   );
 }
+
+LineGraph.propTypes = {
+  data: PropTypes.func.isRequired,
+};
