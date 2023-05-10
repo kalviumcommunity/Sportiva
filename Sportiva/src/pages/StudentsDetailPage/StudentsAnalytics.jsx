@@ -2,6 +2,7 @@ import { Box } from "@chakra-ui/react";
 import data from "../../components/StudentsListingPage/Data";
 import LineGraph from "../../components/StudentsDetail/Graph";
 import { useParams } from "react-router-dom";
+import NavBar from "../../components/StudentsDetail/NavBar";
 
 export default function StudentAnalytics() {
   const { id } = useParams();
@@ -38,8 +39,14 @@ export default function StudentAnalytics() {
   // console.log(parseStudentData(student.coach_notes))
   return(
     <Box>
+      <NavBar/>
        <LineGraph data={parsedData.speed} />
-      
+       <LineGraph data={parsedData.speed} />
+       <LineGraph data={parsedData.speed} />
+       <LineGraph data={parsedData.speed} />
+       <LineGraph data={parsedData.speed} />
+       <LineGraph data={parsedData.speed} />
+
     </Box>
   )
 }

@@ -32,7 +32,7 @@ export default function LineGraph({data}) {
 
   return (
     <Box>
-      <NavBar/>
+      
       <LineChart
         width={300}
         height={200}
