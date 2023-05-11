@@ -1,39 +1,31 @@
-import { useState } from "react";
-import {LineChart,Line,XAxis,YAxis,CartesianGrid,Tooltip,Legend,} from "recharts";
-import { Box, Input ,Text} from "@chakra-ui/react";
+import { Box, Text,Flex } from "@chakra-ui/react";
 import PropTypes from "prop-types";
+import {LineChart,Line,XAxis,YAxis,CartesianGrid,Tooltip,Legend,} from "recharts";
 
-// const initialData = [0, 1, 4, 5, 8, 2];
-
-export default function LineGraph({data,title}) {
-  // const [OldData, setData] = useState();
-  const [newPoints, setNewPoints] = useState("");
-
-  const handleChange = (e) => {
-    setNewPoints(e.target.value);
-  };
-
-  // const handleSubmit = () => {
-  //   const newData = [...data];
-  //   newData.push({
-  //     week: `Week ${OldData.length + 1}`,
-  //     points: parseInt(newPoints),
-  //   });
-  //   setData(newData);
-  //   setNewPoints("");
-  // };
-
+export default function LineGraph({
+  data,
+  title,
+}) {
   const getParsedData = (_data) => {
     return _data.map((val, index) => ({
-      week: `Week ${index + 1}`,
+      Session: `Session ${index + 1}`,
       points: val,
     }));
   };
 
   return (
     <Box>
-      <Box bg={"white"} width={"647px"} p="10px" border="2px solid " color="black">
-        <Text pb="50px" fontWeight="Bold">{title}</Text>
+      <Box
+        bg={"white"}
+        width={"647px"}
+        p="10px"
+        border="2px solid"
+        color="black"
+      >
+        <Flex justifyContent={"space-between"} fontWeight="bold">
+          <Text pb="50px">{title}</Text>
+          <Text>`Session 42: {data}</Text>
+        </Flex>
         <LineChart
           width={532}
           height={250}
@@ -47,13 +39,28 @@ export default function LineGraph({data,title}) {
           <Legend />
           <Line type="monotone" dataKey="points" stroke="#8884d8" />
         </LineChart>
-      </Box>
 
+        {/* <Box mt={4} display="flex" alignItems="center">
+          <Input
+            type="number"
+            placeholder="Enter points for next week"
+            value={newPoints}
+            onChange={handleChange}
+            mr={2}
+          />
+          <Button colorScheme="blue" onClick={handleSubmit}>
+            Add
+          </Button>
+        </Box> */}
+      </Box>
     </Box>
   );
 }
 
 LineGraph.propTypes = {
-  data: PropTypes.func.isRequired,
-  title : PropTypes.string
+  data: PropTypes.arrayOf(PropTypes.number),
+  title: PropTypes.string,
+  newPoints: PropTypes.string,
+  handleChange: PropTypes.func,
+  handleSubmit: PropTypes.func,
 };

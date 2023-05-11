@@ -8,7 +8,7 @@ const data = [
     coach_notes: [
       {
         coach_id: "123",
-        date: "15/05/23",
+        date: "Session 41",
         note: "Good work",
         skills: {
           speed: 0,
@@ -21,7 +21,7 @@ const data = [
       },
       {
         coach_id: "123",
-        date: "15/05/23",
+        date: "Session 42",
         note: "Good work 2",
         skills: {
           speed: 4,
@@ -43,7 +43,7 @@ const data = [
     coach_notes: [
       {
         coach_id: "123",
-        date: "15/05/23",
+        date: "Session 41",
         note: "Good work",
         skills: [
           {
@@ -67,7 +67,7 @@ const data = [
     coach_notes: [
       {
         coach_id: "123",
-        date: "15/05/23",
+        date: "Session 41",
         note: "Good work",
         skills: [
           {
@@ -91,7 +91,7 @@ const data = [
     coach_notes: [
       {
         coach_id: "123",
-        date: "15/05/23",
+        date: "Session 41",
         note: "Good work",
         skills: [
           {
@@ -115,7 +115,7 @@ const data = [
     coach_notes: [
       {
         coach_id: "123",
-        date: "15/05/23",
+        date: "Session 41",
         note: "Good work",
         skills: [
           {
@@ -139,7 +139,7 @@ const data = [
     coach_notes: [
       {
         coach_id: "123",
-        date: "15/05/23",
+        date: "Session 41",
         note: "Good work",
         skills: [
           {
@@ -163,7 +163,7 @@ const data = [
     coach_notes: [
       {
         coach_id: "123",
-        date: "15/05/23",
+        date: "Session 41",
         note: "Good work",
         skills: [
           {
@@ -187,7 +187,7 @@ const data = [
     coach_notes: [
       {
         coach_id: "123",
-        date: "15/05/23",
+        date: "Session 41",
         note: "Good work",
         skills: [
           {
@@ -211,7 +211,7 @@ const data = [
     coach_notes: [
       {
         coach_id: "123",
-        date: "15/05/23",
+        date: "Session 41",
         note: "Good work",
         skills: [
           {
@@ -235,7 +235,7 @@ const data = [
     coach_notes: [
       {
         coach_id: "123",
-        date: "15/05/23",
+        date: "Session 41",
         note: "Good work",
         skills: [
           {
