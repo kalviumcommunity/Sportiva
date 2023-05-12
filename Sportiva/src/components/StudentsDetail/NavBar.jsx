@@ -1,9 +1,10 @@
 import { Flex, Box, Heading, Image } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import CustomModal from "./Modal";
+import PropTypes from "prop-types";
 
 
-export default function NavBar() {
+export default function NavBar({ newSessionCount }) {
   return (
     <Box bgRepeat="no-repeat" bgSize="cover" paddingTop="25px">
       <Flex alignItems="center" px={"40px"}>
@@ -23,10 +24,13 @@ export default function NavBar() {
           </Heading>
         </Flex>
         <Flex>
-            <Image src="/images/Share.png" pr="26px" />
-          <CustomModal />
+          <Image src="/images/Share.png" pr="26px" />
+          <CustomModal newSessionCount={newSessionCount} />
         </Flex>
       </Flex>
     </Box>
   );
 }
+NavBar.propTypes = {
+  newSessionCount: PropTypes.number,
+};

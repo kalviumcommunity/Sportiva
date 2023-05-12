@@ -24,7 +24,7 @@ export default function LineGraph({
       >
         <Flex justifyContent={"space-between"} fontWeight="bold">
           <Text pb="50px">{title}</Text>
-          <Text>`Session 42: {data}</Text>
+          <Text>Latest: {data}</Text>
         </Flex>
         <LineChart
           width={532}

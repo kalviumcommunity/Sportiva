@@ -20,6 +20,7 @@ export default function StudentAnalytics() {
       flexibility: [],
       reflex: [],
     };
+    
 
     coachNotes.forEach((note) => {
       skills.speed.push(note.skills.speed);
@@ -34,10 +35,11 @@ export default function StudentAnalytics() {
   };
 
   const parsedData = parseStudentData(student.coach_notes);
-  console.log(student.note);
+
+  
   return (
     <Box>
-      <NavBar />
+      <NavBar newSessionCount={student.coach_notes.length}/>
       <Flex>
         <Flex pt="136px" pl="200px">
           <Image
@@ -71,7 +73,7 @@ export default function StudentAnalytics() {
             h={"160px"}
             bg="white"
             border="1px solid gray"
-            borderOpacity="0.2"
+            borderopacity="0.2"
           >
             <Text pl="10px" pt="10px">
               {student.coach_notes[student.coach_notes.length - 1].note}

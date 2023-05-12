@@ -14,7 +14,7 @@ export default function StudentsCard() {
     );
     setFilteredData(filteredData);
   };
- console.log(filteredData)
+
   return (
     <>
       <ToolBar handleSearch={handleSearch} />
