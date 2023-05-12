@@ -20,7 +20,7 @@ export default function Homepage() {
           </div>
           <div className="right-div">
             <img
-              className="image"
+              className="home-page-img"
               src="http://www.worldtaekwondo.org/wp-content/uploads/2018/12/DEM_0046.jpg"
               alt="img"
               height="828px"
