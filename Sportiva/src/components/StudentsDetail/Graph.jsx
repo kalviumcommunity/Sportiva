@@ -39,19 +39,6 @@ export default function LineGraph({
           <Legend />
           <Line type="monotone" dataKey="points" stroke="#8884d8" />
         </LineChart>
-
-        {/* <Box mt={4} display="flex" alignItems="center">
-          <Input
-            type="number"
-            placeholder="Enter points for next week"
-            value={newPoints}
-            onChange={handleChange}
-            mr={2}
-          />
-          <Button colorScheme="blue" onClick={handleSubmit}>
-            Add
-          </Button>
-        </Box> */}
       </Box>
     </Box>
   );
