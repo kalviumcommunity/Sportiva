@@ -57,7 +57,7 @@ const UploadAndDisplayImage = ({
 
 UploadAndDisplayImage.propTypes = {
   selectedImage: PropTypes.object,
-  imageButtonRef: PropTypes.func.isRequired,
+  imageButtonRef: PropTypes.object,
   setSelectedImage: PropTypes.func.isRequired,
 };
 
