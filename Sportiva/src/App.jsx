@@ -11,7 +11,7 @@ import StudentForm from "./pages/AddStudentForm/StudentForm";
 function App() {
   return (
     <ChakraProvider theme={theme}>
-      <Image src ="/images/Background-img.jpg" position="fixed" zIndex = "-1" h="100vh" />
+      <Image src ="/images/BackgroundImg.jpg" position="fixed" zIndex = "-1" h="100vh" />
       <Router>
         <Routes>
         <Route exact path="/" element={<Homepage />} />
