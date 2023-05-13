@@ -1,9 +1,11 @@
+const data = require('../../Sportiva/src/components/StudentsListingPage/Data.json')
+
 const express = require("express");
 const app = express();
-const port = 3001;
+const port = 4005;
 
 app.get("/", (req, res) => {
-  res.send("Hello, Express!");
+  res.json(data);
 });
 
 app.listen(port, () => {
