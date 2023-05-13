@@ -1,0 +1,29 @@
+@font-face {
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/static/Oswald-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 300;
+  src: url("/fonts/static/Oswald-Regular.ttf") format("truetype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  font-family: "Oswald";
+  height: 100%;
+  width: 100%;
+}
+
+html,#root{
+  height: 100%;
+  width: 100%;
+}
