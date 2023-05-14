@@ -6,6 +6,8 @@ import theme from "./chakraTheme.jsx";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Homepage from "./pages/Homepage/HomePage";
 import StudentForm from "./pages/AddStudentForm/StudentForm";
+import StudentAnalytics from "./pages/StudentsDetailPage/StudentsAnalytics";
+import NavBar from "./components/StudentsDetail/NavBar";
 
 
 function App() {
@@ -17,6 +19,8 @@ function App() {
         <Route exact path="/" element={<Homepage />} />
         <Route path="/students-listing" element={<StudentsCard />} />
         <Route path="/student-form" element={<StudentForm/>}/>
+        <Route path="/students-analytics/:id" element={<StudentAnalytics />} />
+        <Route path="/nav-bar" element={<NavBar />} />
         </Routes>
       </Router>
     </ChakraProvider>
