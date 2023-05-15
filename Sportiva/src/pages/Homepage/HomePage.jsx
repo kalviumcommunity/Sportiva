@@ -13,9 +13,16 @@ export default function Homepage() {
           <p className="Note2">
             The ultimate tool for tracking and achieving your athletic goals!
           </p>
-          <Link to="/students-listing">
-            <button className="start-button">Start Tracking</button>
-          </Link>
+          {/* <Link to="/students-listing"> */}
+          <button
+            className="start-button"
+            onClick={() => {
+              loginWithRedirect({});
+            }}
+          >
+            Start Tracking
+          </button>
+          {/* </Link> */}
           <button className="login-button" onClick={() => loginWithRedirect()}>
             Login
           </button>
