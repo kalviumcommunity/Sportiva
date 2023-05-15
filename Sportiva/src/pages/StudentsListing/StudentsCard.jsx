@@ -13,14 +13,13 @@ export default function StudentsCard() {
     }
     fetchData()
   },[]);
- console.log(filteredData)
 
   const handleSearch = (e) => {
     const keyword = e.target.value.toLowerCase();
-    const filteredData = data.filter((student) =>
+    const filtered = filteredData.filter((student) =>
       student.name.toLowerCase().includes(keyword)
     );
-    setFilteredData(filteredData);
+    setFilteredData(filtered)
   };
   return (
     <>
