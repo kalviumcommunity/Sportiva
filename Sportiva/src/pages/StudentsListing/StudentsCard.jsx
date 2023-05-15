@@ -11,6 +11,7 @@ export default function StudentsCard() {
       const result = await fetch("http://localhost:4006/api/Students");
       const data = await result.json();
       setFilteredData(data);
+      setSearchedData(data)
     }
     fetchData();
   }, []);
