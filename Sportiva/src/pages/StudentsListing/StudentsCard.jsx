@@ -1,10 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import ToolBar from "../../components/StudentsListingPage/ToolBar";
-import data from "../../components/StudentsListingPage/Data";
+// import data from "../../components/StudentsListingPage/Data";
 
 export default function StudentsCard() {
-  const [filteredData, setFilteredData] = useState(data);
+  const [filteredData, setFilteredData] = useState([]);
+  useEffect(() => {
+    async function fetchData() {
+      const result = await fetch("http://localhost:4006/api/Students");
+      const data = await result.json();
+      setFilteredData(data)
+    }
+    fetchData()
+  },[]);
+ console.log(filteredData)
 
   const handleSearch = (e) => {
     const keyword = e.target.value.toLowerCase();
