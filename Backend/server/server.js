@@ -12,10 +12,17 @@ app.get("/api/Students", (req, res) => {
   res.json(data);
 });
 
-app.get("/api/Students/:id", (req, res) => {
-  const { id } = req.params;
-  const filteredStudents = data.find((student) => student.id === id);
-  res.json(filteredStudents);
+// app.get("/api/Students/:id", (req, res) => {
+//   const { id } = req.params;
+//   const filteredStudents = data.find((student) => student.id === id);
+//   res.json(filteredStudents);
+// });
+
+app.post("/api/Students", (req, res) => {
+  const newStudent = req.body;
+  newStudent.id = data.length.toString();
+  data.push(newStudent);
+  res.status(201).json(newStudent);
 });
 
 app.listen(port, () => {
