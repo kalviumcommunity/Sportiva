@@ -3,7 +3,6 @@ import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import ToolBar from "../../components/StudentsListingPage/ToolBar";
 import data from "../../components/StudentsListingPage/Data";
 import { Link } from "react-router-dom";
-import au
 
 export default function StudentsCard() {
   const [filteredData, setFilteredData] = useState(data);

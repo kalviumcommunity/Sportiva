@@ -1,5 +1,4 @@
 import "./Homepage.css";
-import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
 export default function Homepage() {
@@ -13,7 +12,6 @@ export default function Homepage() {
           <p className="Note2">
             The ultimate tool for tracking and achieving your athletic goals!
           </p>
-          {/* <Link to="/students-listing"> */}
           <button
             className="start-button"
             onClick={() => {
@@ -22,7 +20,6 @@ export default function Homepage() {
           >
             Start Tracking
           </button>
-          {/* </Link> */}
           <button className="login-button" onClick={() => loginWithRedirect()}>
             Login
           </button>
