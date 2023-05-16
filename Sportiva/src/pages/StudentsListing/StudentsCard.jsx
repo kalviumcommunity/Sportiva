@@ -3,10 +3,9 @@ import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import ToolBar from "../../components/StudentsListingPage/ToolBar";
 import data from "../../components/StudentsListingPage/Data";
 import { Link } from "react-router-dom";
-// import { useAuth0 } from "@auth0/auth0-react";
+import au
 
 export default function StudentsCard() {
-  // const { isAuthenticated, loginWithRedirect } = useAuth0();
   const [filteredData, setFilteredData] = useState(data);
 
   const handleSearch = (e) => {
@@ -17,7 +16,6 @@ export default function StudentsCard() {
     setFilteredData(filteredData);
   };
 
-  // if (isAuthenticated) {
     return (
       <>
         <ToolBar handleSearch={handleSearch} />
@@ -62,8 +60,4 @@ export default function StudentsCard() {
         </Flex>
       </>
     );
-//   } else {
-//     loginWithRedirect();
-//     return null; // or you can render a loading state
-//   }
 }
