@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import { Box, Flex, Image, Text,Link } from "@chakra-ui/react";
 import ToolBar from "../../components/StudentsListingPage/ToolBar";
 export default function StudentsCard() {
   const [filteredData, setFilteredData] = useState([]);
@@ -20,6 +20,7 @@ export default function StudentsCard() {
     const filtered = filteredData.filter((student) =>
       student.name.toLowerCase().includes(keyword)
     );
+    console.log(filtered)
   setSearchedData(filtered);
   };
 
@@ -32,19 +33,20 @@ export default function StudentsCard() {
           gridTemplateColumns="repeat(5, minmax(0, 1fr))"
           gap="35px"
         >
-          {filteredData.map((student) => (
-            <Link key={student.id} to={`/students-analytics/${student.id}`}>
-              <Box
-                bg="white"
-                border="1px"
-                borderColor="#C7C7C7"
-                w="240px"
-                h="226px"
-                transition="all 0.4s ease-in-out"
-                _hover={{
-                  boxShadow: "0px 0px 30px rgba(0, 0, 0, 0.1)",
-                  transform: "scale(1.12)",
-                }}
+          {searchedData.length > 0 ? (
+             searchedData.map((student) => (
+               <Link key={student.id} to={`/students-analytics/${student.id}`}>
+               <Box
+                     bg="white"
+                   border="1px"
+                   borderColor="#C7C7C7"
+                   w="240px"
+                   h="226px"
+                   transition="all 0.4s ease-in-out"
+                   _hover={{
+                     boxShadow: "0px 0px 30px rgba(0, 0, 0, 0.1)",
+                     transform: "scale(1.12)",
+                   }}
               >
                 <Image
                   src={student.image}
@@ -62,9 +64,15 @@ export default function StudentsCard() {
                 </Text>
               </Box>
             </Link>
-          ))}
+          ))
+          ) : (
+            <></>
+          )}
         </Box>
       </Flex>
     </>
   );
 }
+
+
+
