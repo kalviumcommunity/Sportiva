@@ -14,7 +14,9 @@ export default function Homepage() {
             <Link to ="/students-listing">
               <button className="start-button">Start Tracking</button>
             </Link>
+            <Link to ="/nav-bar">
             <button className="login-button">Login</button>
+            </Link>
           </div>
           <div className="right-div">
             <img

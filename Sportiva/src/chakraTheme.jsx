@@ -19,6 +19,19 @@ const theme = extendTheme({
             body: { fontFamily: 'Oswald' },
         },
     },
+
+    components:{
+        Modal:{
+            sizes:{
+                900:{
+                    dialog:{
+                        width:900,
+                        height:700
+                    }
+                }
+            }
+        }
+    }
 })
 
 export default theme

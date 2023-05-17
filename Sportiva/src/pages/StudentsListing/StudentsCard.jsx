@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import ToolBar from "../../components/StudentsListingPage/ToolBar";
-
 export default function StudentsCard() {
   const [filteredData, setFilteredData] = useState([]);
   const [searchedData, setSearchedData] = useState([]);
@@ -33,16 +32,15 @@ export default function StudentsCard() {
           gridTemplateColumns="repeat(5, minmax(0, 1fr))"
           gap="35px"
         >
-          {searchedData.length > 0 ? (
-            searchedData.map((student) => (
+          {filteredData.map((student) => (
+            <Link key={student.id} to={`/students-analytics/${student.id}`}>
               <Box
-                key={student.id}
                 bg="white"
                 border="1px"
                 borderColor="#C7C7C7"
                 w="240px"
                 h="226px"
-                transition="all 0.1s ease-in-out"
+                transition="all 0.4s ease-in-out"
                 _hover={{
                   boxShadow: "0px 0px 30px rgba(0, 0, 0, 0.1)",
                   transform: "scale(1.12)",
@@ -63,10 +61,8 @@ export default function StudentsCard() {
                   {student.belt_grade}
                 </Text>
               </Box>
-            ))
-          ) : (
-            <></>
-          )}
+            </Link>
+          ))}
         </Box>
       </Flex>
     </>
