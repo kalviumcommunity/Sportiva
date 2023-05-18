@@ -10,16 +10,14 @@
         "coach_id": "123",
         "date": "15/05/23",
         "note": "Good work",
-        "skills":[
-          {
-          "speed": [0,1,4],
-          "footwork": [0,1,4],
-          "stamina": [0,1,4],
-          "flexibility": [0,1,4],
-          "agility": [0,1,4],
-          "reflex": [0,1,4]
-            }
-          ]
+        "skills": {
+          "speed": 0,
+          "footwork": 0,
+          "stamina": 0,
+          "flexibility": 0,
+          "agility": 0,
+          "reflex": 0
+        }
       }
     ]
   },
@@ -34,16 +32,14 @@
         "coach_id": "123",
         "date": "15/05/23",
         "note": "Good work",
-        "skills":[
-          {
-          "speed": [0,1,4],
-          "footwork": [0,1,4],
-          "stamina": [0,1,4],
-          "flexibility": [0,1,4],
-          "agility": [0,1,4],
-          "reflex": [0,1,4]
-            }
-          ]
+        "skills": {
+          "speed": 0,
+          "footwork": 0,
+          "stamina": 0,
+          "flexibility": 0,
+          "agility": 0,
+          "reflex": 0
+        }
       }
     ]
   },
@@ -58,16 +54,14 @@
         "coach_id": "123",
         "date": "15/05/23",
         "note": "Good work",
-        "skills":[
-        {
-        "speed": [0,1,4],
-        "footwork": [0,1,4],
-        "stamina": [0,1,4],
-        "flexibility": [0,1,4],
-        "agility": [0,1,4],
-        "reflex": [0,1,4]
-          }
-        ]
+        "skills": {
+          "speed": 0,
+          "footwork": 0,
+          "stamina": 0,
+          "flexibility": 0,
+          "agility": 0,
+          "reflex": 0
+        }
       }
     ]
   },
@@ -82,16 +76,14 @@
         "coach_id": "123",
         "date": "15/05/23",
         "note": "Good work",
-        "skills":[
-        {
-        "speed": [0,1,4],
-        "footwork": [0,1,4],
-        "stamina": [0,1,4],
-        "flexibility": [0,1,4],
-        "agility": [0,1,4],
-        "reflex": [0,1,4]
-          }
-        ]
+        "skills": {
+          "speed": 0,
+          "footwork": 0,
+          "stamina": 0,
+          "flexibility": 0,
+          "agility": 0,
+          "reflex": 0
+        }
       }
     ]
   },
@@ -106,16 +98,14 @@
         "coach_id": "123",
         "date": "15/05/23",
         "note": "Good work",
-        "skills":[
-        {
-        "speed": [0,1,4],
-        "footwork": [0,1,4],
-        "stamina": [0,1,4],
-        "flexibility": [0,1,4],
-        "agility": [0,1,4],
-        "reflex": [0,1,4]
-          }
-        ]
+        "skills": {
+          "speed": 0,
+          "footwork": 0,
+          "stamina": 0,
+          "flexibility": 0,
+          "agility": 0,
+          "reflex": 0
+        }
       }
     ]
   },
@@ -130,16 +120,14 @@
         "coach_id": "123",
         "date": "15/05/23",
         "note": "Good work",
-        "skills":[
-          {
-          "speed": [0,1,4],
-          "footwork": [0,1,4],
-          "stamina": [0,1,4],
-          "flexibility": [0,1,4],
-          "agility": [0,1,4],
-          "reflex": [0,1,4]
-            }
-          ]
+        "skills": {
+          "speed": 0,
+          "footwork": 0,
+          "stamina": 0,
+          "flexibility": 0,
+          "agility": 0,
+          "reflex": 0
+        }
       }
     ]
   },
@@ -154,16 +142,14 @@
         "coach_id": "123",
         "date": "15/05/23",
         "note": "Good work",
-        "skills":[
-          {
-          "speed": [0,1,4],
-          "footwork": [0,1,4],
-          "stamina": [0,1,4],
-          "flexibility": [0,1,4],
-          "agility": [0,1,4],
-          "reflex": [0,1,4]
-            }
-          ]
+        "skills": {
+          "speed": 0,
+          "footwork": 0,
+          "stamina": 0,
+          "flexibility": 0,
+          "agility": 0,
+          "reflex": 0
+        }
       }
     ]
   },
@@ -178,18 +164,16 @@
         "coach_id": "123",
         "date": "15/05/23",
         "note": "Good work",
-        "skills":[
-          {
-          "speed": [0,1,4],
-          "footwork": [0,1,4],
-          "stamina": [0,1,4],
-          "flexibility": [0,1,4],
-          "agility": [0,1,4],
-          "reflex": [0,1,4]
-            }
-          ]
+        "skills": {
+          "speed": 0,
+          "footwork": 0,
+          "stamina": 0,
+          "flexibility": 0,
+          "agility": 0,
+          "reflex": 0
+        }
       }
-  ]
+    ]
   },
   {
     "id": "8",
@@ -202,16 +186,14 @@
         "coach_id": "123",
         "date": "15/05/23",
         "note": "Good work",
-        "skills":[
-        {
-        "speed": [0,1,4],
-        "footwork": [0,1,4],
-        "stamina": [0,1,4],
-        "flexibility": [0,1,4],
-        "agility": [0,1,4],
-        "reflex": [0,1,4]
-          }
-        ]
+        "skills": {
+          "speed": 0,
+          "footwork": 0,
+          "stamina": 0,
+          "flexibility": 0,
+          "agility": 0,
+          "reflex": 0
+        }
       }
     ]
   },
@@ -226,19 +208,30 @@
         "coach_id": "123",
         "date": "15/05/23",
         "note": "Good work",
-        "skills":[
-          {
-          "speed": [0,1,4],
-          "footwork": [0,1,4],
-          "stamina": [0,1,4],
-          "flexibility": [0,1,4],
-          "agility": [0,1,4],
-          "reflex": [0,1,4]
-            }
-          ]
+        "skills": {
+          "speed": 0,
+          "footwork": 0,
+          "stamina": 0,
+          "flexibility": 0,
+          "agility": 0,
+          "reflex": 0
+        }
       }
     ]
+  },
+  {
+    "id": "0",
+    "image": "/images/CarolineForbes.png",
+    "name": "Caroline Forbes",
+    "belt_grade": "Black 2nd Dan",
+    "years_of_exp": "2 years",
+    "coach_notes": []
+  },
+  {},
+  {
+    "coach_id": "123",
+    "date": "15/05/23",
+    "note": "Good work",
+    "skills": {}
   }
-  
 ]
-
