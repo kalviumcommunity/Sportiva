@@ -172,6 +172,19 @@
           "agility": 0,
           "reflex": 0
         }
+      },
+      {
+        "coach_id": "323",
+        "date": "15/05/23",
+        "note": "Good work",
+        "skills": {
+          "speed": 9,
+          "footwork": 0,
+          "stamina": 2,
+          "flexibility": 0,
+          "agility": 2,
+          "reflex": 1
+        }
       }
     ]
   },
@@ -220,18 +233,38 @@
     ]
   },
   {
-    "id": "0",
-    "image": "/images/CarolineForbes.png",
-    "name": "Caroline Forbes",
+    "id": "12",
+    "image": "/images/FreyaMikealson.png",
+    "name": "Freya Mikealson",
     "belt_grade": "Black 2nd Dan",
     "years_of_exp": "2 years",
-    "coach_notes": []
-  },
-  {},
-  {
-    "coach_id": "123",
-    "date": "15/05/23",
-    "note": "Good work",
-    "skills": {}
+    "coach_notes": [
+      {
+        "coach_id": "223",
+        "date": "15/05/23",
+        "note": "Good work",
+        "skills": {
+          "speed": 9,
+          "footwork": 0,
+          "stamina": 2,
+          "flexibility": 0,
+          "agility": 2,
+          "reflex": 1
+        }
+      },
+      {
+        "coach_id": "323",
+        "date": "15/05/23",
+        "note": "Good work",
+        "skills": {
+          "speed": 9,
+          "footwork": 0,
+          "stamina": 2,
+          "flexibility": 0,
+          "agility": 2,
+          "reflex": 1
+        }
+      }
+    ]
   }
 ]

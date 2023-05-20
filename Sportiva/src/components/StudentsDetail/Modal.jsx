@@ -1,23 +1,10 @@
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  Button,
-} from "@chakra-ui/react";
+import {Modal,ModalOverlay,ModalContent,ModalHeader,ModalFooter,ModalBody,ModalCloseButton,Button,} from "@chakra-ui/react";
 import { useState } from "react";
-import { Image, 
-  Flex, 
-  FormControl, 
-  FormLabel, 
-  Input 
-} from "@chakra-ui/react";
+import { Image, Flex, FormControl, FormLabel, Input } from "@chakra-ui/react";
 import PropTypes from "prop-types";
+import axios from "axios";
 
-export default function CustomModal({newSessionCount}) {
+export default function CustomModal({ newSessionCount }) {
   const [isOpen, setIsOpen] = useState(false);
   const [newNote, setNewNote] = useState("");
   const [date, setDate] = useState(newSessionCount);
@@ -31,7 +18,6 @@ export default function CustomModal({newSessionCount}) {
     date: `Session${newSessionCount}`,
   });
 
-
   const handleClose = () => {
     setIsOpen(false);
   };
@@ -39,8 +25,8 @@ export default function CustomModal({newSessionCount}) {
   const handleOpen = () => {
     setIsOpen(true);
   };
-
   const handleSubmit = () => {
+    axios.post("http://localhost:4006/api/Students", newSkills);
     setDate(date + 1);
     handleClose();
   };
@@ -209,7 +195,14 @@ export default function CustomModal({newSessionCount}) {
                 </Flex>
               </ModalBody>
               <ModalFooter pr="79px">
-                <Button bgColor="#9E0033" color="white" w="100px" h="40px" mr="330px" onClick={handleSubmit}>
+                <Button
+                  bgColor="#9E0033"
+                  color="white"
+                  w="100px"
+                  h="40px"
+                  mr="330px"
+                  onClick={handleSubmit}
+                >
                   ADD
                 </Button>
               </ModalFooter>

@@ -1,8 +1,19 @@
-import { useState,useRef } from "react";
-import {Flex,Box,Heading,Image,VStack,FormControl,FormLabel,Input,Button} from "@chakra-ui/react";
+import { useState, useRef } from "react";
+import {
+  Flex,
+  Box,
+  Heading,
+  Image,
+  VStack,
+  FormControl,
+  FormLabel,
+  Input,
+  Button,
+} from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import data from "../../components/StudentsListingPage/Data";
 import UploadAndDisplayImage from "./ImageUpload";
+import axios from "axios";
 
 export default function StudentForm() {
   const [name, setName] = useState("");
@@ -13,15 +24,24 @@ export default function StudentForm() {
   const imageButtonRef = useRef();
 
   function addStudent() {
+    console.log("abd");
+    const newImageURL = URL.createObjectURL(selectedImage);
     const newStudent = {
       id: data.length.toString(),
       name: name,
       years_of_exp: yearsOfExp,
       belt_grade: beltGrade,
-      image: URL.createObjectURL(selectedImage),
+      image: newImageURL,
       coach_notes: [],
     };
+    const newImageFile = new FormData();
+    newImageFile.append("image", JSON.stringify(newImageURL));
+    // newStudent.image = newImageFile;
     data.push(newStudent);
+    axios.post("http://localhost:4006/api/Students/:id/notes", newStudent);
+
+    console.log(newStudent);
+
     setName("");
     setBeltGrade("");
     setYearsOfExp("");

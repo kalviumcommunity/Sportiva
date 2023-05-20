@@ -35,7 +35,7 @@ export default function StudentsCard() {
         >
           {searchedData.length > 0 ? (
              searchedData.map((student) => (
-               <Link key={student.id} to={`/students-analytics/${student.id}`}>
+              <Link key={student.id} to={`/students-analytics/${student.id}`}>
                <Box
                      bg="white"
                    border="1px"

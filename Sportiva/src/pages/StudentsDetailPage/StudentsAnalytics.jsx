@@ -1,6 +1,8 @@
 import { Box, Text, Flex, Image } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import NavBar from "../../components/StudentsDetail/NavBar";
+import LineGraph from "../../components/StudentsDetail/Graph";
 
 export default function StudentAnalytics() {
   const { id } = useParams();
