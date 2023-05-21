@@ -1,14 +1,5 @@
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  Button,
-} from "@chakra-ui/react";
-import { useState } from "react";
+import {Modal,ModalOverlay,ModalContent,ModalHeader,ModalFooter,ModalBody,ModalCloseButton,Button,} from "@chakra-ui/react";
+import { useState,useRef,useEffect } from "react";
 import { Image, 
   Flex, 
   FormControl, 
@@ -18,6 +9,7 @@ import { Image,
 import PropTypes from "prop-types";
 
 export default function CustomModal({newSessionCount}) {
+  const coachNoteRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   const [newNote, setNewNote] = useState("");
   const [date, setDate] = useState(newSessionCount);
@@ -31,6 +23,12 @@ export default function CustomModal({newSessionCount}) {
     date: `Session${newSessionCount}`,
   });
 
+  useEffect(() => {
+    if (coachNoteRef.current) {
+      coachNoteRef.current.focus();
+      coachNoteRef.current.setSelectionRange(0, 0);
+    }
+  }, []);
 
   const handleClose = () => {
     setIsOpen(false);
@@ -203,13 +201,24 @@ export default function CustomModal({newSessionCount}) {
                         borderRadius="none"
                         value={newNote}
                         onChange={(e) => setNewNote(e.target.value)}
+                        ref={coachNoteRef}
+                        style={{ textAlign: "left" }}
+                        pb="120px"
+
                       />
                     </FormControl>
                   </Flex>
                 </Flex>
               </ModalBody>
               <ModalFooter pr="79px">
-                <Button bgColor="#9E0033" color="white" w="100px" h="40px" mr="330px" onClick={handleSubmit}>
+                <Button
+                  bgColor="#9E0033"
+                  color="white"
+                  w="100px"
+                  h="40px"
+                  mr="330px"
+                  onClick={handleSubmit}
+                >
                   ADD
                 </Button>
               </ModalFooter>
@@ -222,5 +231,5 @@ export default function CustomModal({newSessionCount}) {
 }
 
 CustomModal.propTypes = {
-  newSessionCount: PropTypes.object,
+  newSessionCount: PropTypes.number,
 };
