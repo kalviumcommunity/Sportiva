@@ -30,8 +30,8 @@ app.post("/api/Students", async(req, res) => {
   const newStudent = {  image, name, belt_grade, years_of_exp, coach_notes };
   console.log(newStudent,typeof(id),typeof(coach_id))
   try{
-  const data=new StudentModel(newStudent)
-  await data.save();
+  const student = new StudentModel(newStudent);
+  await student.save();
 
   res.send('data stored successfully')
   }catch(e){

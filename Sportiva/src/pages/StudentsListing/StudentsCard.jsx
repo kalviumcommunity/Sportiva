@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Box, Flex, Image, Text,Link } from "@chakra-ui/react";
+import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import ToolBar from "../../components/StudentsListingPage/ToolBar";
 export default function StudentsCard() {
   const [filteredData, setFilteredData] = useState([]);
@@ -11,6 +12,7 @@ export default function StudentsCard() {
       const data = await result.json();
       setFilteredData(data);
       setSearchedData(data)
+      console.log(searchedData)
     }
     fetchData();
   }, []);

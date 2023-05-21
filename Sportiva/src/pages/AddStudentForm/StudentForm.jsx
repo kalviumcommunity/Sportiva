@@ -1,15 +1,5 @@
 import { useState, useRef } from "react";
-import {
-  Flex,
-  Box,
-  Heading,
-  Image,
-  VStack,
-  FormControl,
-  FormLabel,
-  Input,
-  Button,
-} from "@chakra-ui/react";
+import {Flex,Box,Heading,Image,VStack,FormControl,FormLabel,Input,Button,} from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import data from "../../components/StudentsListingPage/Data";
 import UploadAndDisplayImage from "./ImageUpload";
@@ -38,7 +28,7 @@ export default function StudentForm() {
     newImageFile.append("image", JSON.stringify(newImageURL));
     // newStudent.image = newImageFile;
     data.push(newStudent);
-    axios.post("http://localhost:4006/api/Students/:id/notes", newStudent);
+    axios.post("http://localhost:4006/api/Students/", newStudent);
 
     console.log(newStudent);
 
