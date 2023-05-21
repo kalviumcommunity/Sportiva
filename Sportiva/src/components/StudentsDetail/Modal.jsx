@@ -26,7 +26,7 @@ export default function CustomModal({ newSessionCount }) {
     setIsOpen(true);
   };
   const handleSubmit = () => {
-    axios.post("http://localhost:4006/api/Students", newSkills);
+    axios.post("http://localhost:4006/api/Students/:id/notes", newSkills);
     setDate(date + 1);
     handleClose();
   };
