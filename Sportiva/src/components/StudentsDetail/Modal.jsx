@@ -4,17 +4,20 @@ import { Image, Flex, FormControl, FormLabel, Input } from "@chakra-ui/react";
 import PropTypes from "prop-types";
 import axios from "axios";
 
-export default function CustomModal({ newSessionCount }) {
+export default function CustomModal({ newSessionCount , id }) {
+  
   const [isOpen, setIsOpen] = useState(false);
   const [newNote, setNewNote] = useState("");
   const [date, setDate] = useState(newSessionCount);
   const [newSkills, setNewSkills] = useState({
+    skills : {
     speed: "",
     footwork: "",
     stamina: "",
     agility: "",
     flexibility: "",
     reflex: "",
+    },
     date: `Session${newSessionCount}`,
   });
 
@@ -26,7 +29,7 @@ export default function CustomModal({ newSessionCount }) {
     setIsOpen(true);
   };
   const handleSubmit = () => {
-    axios.post("http://localhost:4006/api/Students/:id/notes", newSkills);
+    axios.post(`http://localhost:4006/api/Students/${id}/notes`, newSkills);
     setDate(date + 1);
     handleClose();
   };
@@ -215,5 +218,5 @@ export default function CustomModal({ newSessionCount }) {
 }
 
 CustomModal.propTypes = {
-  newSessionCount: PropTypes.object,
+  newSessionCount: PropTypes.number,
 };

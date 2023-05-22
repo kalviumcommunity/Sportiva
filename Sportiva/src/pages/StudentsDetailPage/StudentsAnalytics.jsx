@@ -51,7 +51,7 @@ export default function StudentAnalytics() {
 
   return (
     <Box>
-      <NavBar newSessionCount={student.coach_notes.length} />
+      <NavBar newSessionCount={student.coach_notes.length}/>
       <Flex>
         <Flex pt="136px" pl="200px">
           <Image

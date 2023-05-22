@@ -6,6 +6,7 @@ const fs = require("fs");
 const { connection } = require("../Config/db");
 const { StudentModel } = require("../models/schema");
 const { userInfo } = require("os");
+const { CoachNoteModel } = require("../models/coachNote.js");
 
 const app = express();
 const port = 4006;
@@ -14,123 +15,79 @@ const port = 4006;
 app.use(cors());
 app.use(express.json());
 
-app.get("/api/Students", (req, res) => {
-  res.json(data);
+app.get("/api/Students", async(req, res) => {
+   try {
+    let result = await StudentModel.find({});
+    res.send(result);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Error occurred while fetching students");
+  }
 });
 
 app.get("/api/Students/:id", async (req, res) => {
   const { id } = req.params;
-  const filteredStudents = await data.find((student) => student.id === id);
-  res.json(filteredStudents);
-});
-
-app.post("/api/Students", async(req, res) => {
-  console.log(req.body);
-  const {  image, name, belt_grade, years_of_exp, coach_notes } = req.body;
-  const newStudent = {  image, name, belt_grade, years_of_exp, coach_notes };
-  console.log(newStudent,typeof(id),typeof(coach_id))
-  try{
-  const student = new StudentModel(newStudent);
-  await student.save();
-
-  res.send('data stored successfully')
-  }catch(e){
-    console.log(e)
-     res.send("something wrong");
+  try {
+    const student = await StudentModel.findOne({ id });
+    if (student) {
+      res.json(student);
+    } else {
+      res.status(404).json({ message: "Student not found" });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Error occurred while fetching student" });
   }
 });
 
-app.post("/api/Students/:id/notes", async(req, res) => {
+app.post("/api/Students", async (req, res) => {
+  console.log(req.body);
+  const { image, name, belt_grade, years_of_exp, coach_notes } = req.body;
+  const newStudent = { image, name, belt_grade, years_of_exp, coach_notes };
+  console.log(newStudent);
+
+  try {
+    const student = await StudentModel.create(newStudent);
+    console.log(student);
+
+    res.send("Data stored successfully");
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Something went wrong");
+  }
+});
+
+
+app.post("/api/Students/:id/notes", async (req, res) => {
   const { id } = req.params;
   const { coach_id, date, note, skills } = req.body;
-  const newSession = { coach_id, date, note, skills  };
-  const fw = data.find((student) => student.id === id);
-  try{
-  fw.coach_notes.push(newSession);
-  const data = new StudentModel(newSession);
-  await data.save();
+  const newSession = { coach_id, date, note, skills };
 
-  res.send('data stored successfully')
-  }catch(e){
-    console.log(e)
-     res.send("something wrong");
+  try {
+    const filter = { id };
+    const update = { $push: { coach_notes: newSession } };
+    const result = await StudentModel.findOneAndUpdate(filter, update, {
+      new: true,
+    });
+
+    if (result) {
+      res.send("Data stored successfully");
+    } else {
+      res.status(404).send("Student not found");
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Something went wrong");
   }
 });
 
-//   fw.coach_notes.push(newSession);
-//   const _tempData = data.map((student) => {
-//     if (student.id === id) {
-//       return fw;
-//     } else {
-//       return student;
-//     }
-//   });
 
-//   fs.writeFile(datapath, JSON.stringify(_tempData, null, 2), (err) => {
-//     if (err) {
-//       console.error("Error writing data.json", err);
-//       return res.status(500).json({ message: "Internal server error" });
-//     } else {
-//       res.json({ message: "Student added sucessfully" });
-//     }
-//   });
-// });
-
-app.listen(port, async() => {
-  try{
-      await connection;
-      console.log('connected to DB')
-  }catch(err){
-        console.log(err)
+app.listen(port, async () => {
+  try {
+    await connection;
+    console.log("connected to DB");
+  } catch (err) {
+    console.log(err);
   }
   console.log(`Server is running on port ${port}`);
 });
-
-
-  // let studentdata = [];
-  // try {
-  //   studentdata = require(datapath);
-  // } catch (err) {
-  //   console.error("Error reading student data.json", err);
-  //   return res.status(500).json({ message: "Internal server error" });
-  // }
-  // studentdata.push(newStudent);
-
-  // fs.writeFile(datapath, JSON.stringify(studentdata, null, 2), (err) => {
-  //   if (err) {
-  //     console.error("Error writing data.json", err);
-  //     return res.status(500).json({ message: "Internal server error" });
-  //   } else {
-  //     res.json({ message: "Student added sucessfully" });
-  //   }
-  // });
-
-// app.put("/api/Students/:id/skills", (req, res) => {
-
-//   const { id } = req.params;
-//   const { coach_id,speed,footwork,stamina,flexibility,agility,reflex } = req.body;
-//   const newUpdates = {speed,footwork,stamina,flexibility,agility,reflex,};
-
-//   const student = data.find((student) => student.id.coach_notes.coach_id === id);
-
-//   fw.coach_notes.skills.push(newUpdates);
-//   const _tempData = data.map((student) => {
-
-//       if (!student) {
-//         return res.status(404).json({ message: "Student not found" });
-//       }
-
-//       student.coach_notes.forEach((note) => {
-//         note.skills = { ...note.skills, ...skills };
-//       });
-//   })
-
-//   fs.writeFile(datapath, JSON.stringify(_tempData, null, 2), (err) => {
-//     if (err) {
-//       console.error("Error writing data.json", err);
-//       return res.status(500).json({ message: "Internal server error" });
-//     } else {
-//       res.json({ message: "Skills updated successfully" });
-//     }
-//   });
-// });
