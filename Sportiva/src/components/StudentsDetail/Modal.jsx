@@ -10,14 +10,12 @@ export default function CustomModal({ newSessionCount , id }) {
   const [newNote, setNewNote] = useState("");
   const [date, setDate] = useState(newSessionCount);
   const [newSkills, setNewSkills] = useState({
-    skills : {
     speed: "",
     footwork: "",
     stamina: "",
     agility: "",
     flexibility: "",
     reflex: "",
-    },
     date: `Session${newSessionCount}`,
   });
 
