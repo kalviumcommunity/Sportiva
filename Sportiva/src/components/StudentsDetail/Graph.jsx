@@ -5,6 +5,7 @@ import {LineChart,Line,XAxis,YAxis,CartesianGrid,Tooltip,Legend,} from "recharts
 export default function LineGraph({
   data,
   title,
+  latestData
 }) {
   const getParsedData = (_data) => {
     return _data.map((val, index) => ({
@@ -24,7 +25,7 @@ export default function LineGraph({
       >
         <Flex justifyContent={"space-between"} fontWeight="bold">
           <Text pb="50px">{title}</Text>
-          <Text>Latest: {data}</Text>
+          <Text>Latest: {latestData}</Text>
         </Flex>
         <LineChart
           width={532}

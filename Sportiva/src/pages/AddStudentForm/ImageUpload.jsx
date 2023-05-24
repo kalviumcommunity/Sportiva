@@ -5,6 +5,7 @@ const UploadAndDisplayImage = ({
   selectedImage,
   setSelectedImage,
   imageButtonRef,
+  newImageURL
 }) => {
   return (
     <Box>
@@ -14,7 +15,7 @@ const UploadAndDisplayImage = ({
             <Image
               h="210px"
               w="210px"
-              src={selectedImage}
+              src={newImageURL}
               position="relative"
               t="10px"
               padding="0px"

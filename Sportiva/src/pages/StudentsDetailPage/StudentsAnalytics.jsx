@@ -51,7 +51,7 @@ export default function StudentAnalytics() {
 
   return (
     <Box>
-      <NavBar newSessionCount={student.coach_notes?.length || 0} />
+      <NavBar newSessionCount={student.coach_notes?.length || 1} />
       <Flex>
         <Flex pt="136px" pl="200px">
           <Image
@@ -77,7 +77,9 @@ export default function StudentAnalytics() {
           >
             <Text>Coach Notes</Text>
             <Text>
-              {student.coach_notes?.length ? student.coach_notes[student.coach_notes.length - 1].session : ''}
+              {student.coach_notes?.length
+                ? student.coach_notes[student.coach_notes.length - 1].session
+                : ""}
             </Text>
           </Flex>
           <Box
@@ -88,7 +90,9 @@ export default function StudentAnalytics() {
             borderOpacity="0.2"
           >
             <Text pl="10px" pt="10px">
-              {student.coach_notes?.length ? student.coach_notes[student.coach_notes.length - 1].note : ''}
+              {student.coach_notes?.length
+                ? student.coach_notes[student.coach_notes.length - 1].note
+                : ""}
             </Text>
           </Box>
         </Flex>
@@ -102,6 +106,7 @@ export default function StudentAnalytics() {
             <Box width="50%" pr={2} mb="41px" mr="41px">
               <LineGraph
                 data={parsedData.speed}
+                latestData={parsedData.speed[parsedData.speed.length - 1]}
                 title="Speed"
                 session={parsedData.session}
               />
@@ -109,6 +114,7 @@ export default function StudentAnalytics() {
             <Box width="50%" pl={2} mb="41px" mr="41px">
               <LineGraph
                 data={parsedData.footwork}
+                latestData={parsedData.speed[parsedData.speed.length - 1]}
                 title="Footwork"
                 session={parsedData.session}
               />
@@ -118,6 +124,7 @@ export default function StudentAnalytics() {
             <Box width="50%" pr={2} mb="41px" mr="41px">
               <LineGraph
                 data={parsedData.stamina}
+                latestData={parsedData.stamina[parsedData.stamina.length - 1]}
                 title="Stamina"
                 session={parsedData.session}
               />
@@ -125,6 +132,7 @@ export default function StudentAnalytics() {
             <Box width="50%" pl={2} mb="41px" mr="41px">
               <LineGraph
                 data={parsedData.agility}
+                latestData={parsedData.agility[parsedData.agility.length - 1]}
                 title="Agility"
                 session={parsedData.session}
               />
@@ -134,6 +142,7 @@ export default function StudentAnalytics() {
             <Box width="50%" pr={2} mb="41px" mr="41px">
               <LineGraph
                 data={parsedData.flexibility}
+                latestData={parsedData.flexibility[parsedData.flexibility.length - 1]}
                 title="Flexibility"
                 session={parsedData.session}
               />
@@ -141,6 +150,7 @@ export default function StudentAnalytics() {
             <Box width="50%" pl={2} mb="41px" mr="41px">
               <LineGraph
                 data={parsedData.reflex}
+                latestData={parsedData.reflex[parsedData.reflex.length - 1]}
                 title="Reflex"
                 session={parsedData.session}
               />

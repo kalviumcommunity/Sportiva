@@ -21,11 +21,14 @@ export default function StudentForm() {
   const [yearsOfExp, setYearsOfExp] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
+  const[imageURL , setImageURL] = useState("")
   const imageButtonRef = useRef();
   const navigate = useNavigate()
 
   async function addStudent() {
     const newImageURL = URL.createObjectURL(selectedImage);
+    setImageURL(newImageURL);
+    console.log(newImageURL)
     const newStudent = {
       id: data.length.toString(),
       name: name,
@@ -121,6 +124,7 @@ export default function StudentForm() {
                 selectedImage={selectedImage}
                 setSelectedImage={setSelectedImage}
                 imageButtonRef={imageButtonRef}
+                newImageURL={imageURL}
               />
             </Box>
             <Box w="400px" ml="155px">
