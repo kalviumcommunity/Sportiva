@@ -3,9 +3,17 @@ import { Link, useParams } from "react-router-dom";
 import CustomModal from "./Modal";
 import PropTypes from "prop-types";
 
-
 export default function NavBar({ newSessionCount }) {
-  const {id} = useParams()
+  const { id } = useParams();
+
+  const handleShareClick = () => {
+    const currentUrl = window.location.href;
+    navigator.clipboard.writeText(currentUrl).then(function(){
+    alert("Link copied!");
+    });
+   
+  };
+
   return (
     <Box bgRepeat="no-repeat" bgSize="cover" paddingTop="25px">
       <Flex alignItems="center" px={"40px"}>
@@ -25,13 +33,19 @@ export default function NavBar({ newSessionCount }) {
           </Heading>
         </Flex>
         <Flex>
-          <Image src="/images/Share.png" pr="26px" />
-          <CustomModal newSessionCount={newSessionCount} id = {id} />
+          <Image
+            src="/images/Share.png"
+            pr="26px"
+            onClick={handleShareClick}
+            style={{ cursor: "pointer" }}
+          />
+          <CustomModal newSessionCount={newSessionCount} id={id} />
         </Flex>
       </Flex>
     </Box>
   );
 }
+
 NavBar.propTypes = {
   newSessionCount: PropTypes.number,
 };

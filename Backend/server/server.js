@@ -45,6 +45,7 @@ app.get("/api/Students/:id", async (req, res) => {
 
 app.post("/api/Students", upload.single("image"), async (req, res) => {
 const { name, belt_grade, years_of_exp } = req.body;
+const apiKey = process.env.API_KEY;
   const formData = new FormData();
   // formData.append("key", "ecacc87058e6a14e92023eaa1a1cd418"); // Replace with your ImgBB API key
   formData.append("image", req.file.buffer.toString("base64"));
@@ -52,7 +53,7 @@ const { name, belt_grade, years_of_exp } = req.body;
   let imageUrl
   try {
       const response = await axios.post(
-        "https://api.imgbb.com/1/upload?key=ecacc87058e6a14e92023eaa1a1cd418",formData
+        `https://api.imgbb.com/1/upload?key=${apiKey}`,formData
       );
       imageUrl = response.data.data.url;
   } catch (error) {
