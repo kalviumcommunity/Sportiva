@@ -1,12 +1,14 @@
-const data = require("../../Sportiva/src/components/StudentsListingPage/Data.json");
 const express = require("express");
+const axios = require("axios")
 const cors = require("cors");
-const datapath = "../../Sportiva/src/components/StudentsListingPage/Data.json";
-const fs = require("fs");
 const { connection } = require("../Config/db");
-const { StudentModel } = require("../models/schema");
+const { StudentModel } = require("../models/Student");
 const { userInfo } = require("os");
-const { CoachNoteModel } = require("../models/coachNote.js");
+const multer = require("multer")
+const FormData = require("form-data")
+const upload = multer({storage : multer.memoryStorage()})
+const { coachNotesSchema, CoachNoteModel } = require("../models/coachNote.js");
+
 
 const app = express();
 const port = 4006;
@@ -28,7 +30,7 @@ app.get("/api/Students", async(req, res) => {
 app.get("/api/Students/:id", async (req, res) => {
   const { id } = req.params;
   try {
-    const student = await StudentModel.findOne({ id });
+    const student = await StudentModel.findOne({ _id:id });
     if (student) {
       res.json(student);
     } else {
@@ -36,20 +38,36 @@ app.get("/api/Students/:id", async (req, res) => {
     }
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Error occurred while fetching student" });
+    // res.status(500).json({ message: "Error occurred while fetching student" });
+    res.send(error)
   }
 });
 
-app.post("/api/Students", async (req, res) => {
-  console.log(req.body);
-  const { image, name, belt_grade, years_of_exp, coach_notes } = req.body;
-  const newStudent = { image, name, belt_grade, years_of_exp, coach_notes };
-  console.log(newStudent);
+app.post("/api/Students", upload.single("image"), async (req, res) => {
+const { name, belt_grade, years_of_exp } = req.body;
+  const formData = new FormData();
+  // formData.append("key", "ecacc87058e6a14e92023eaa1a1cd418"); // Replace with your ImgBB API key
+  formData.append("image", req.file.buffer.toString("base64"));
+
+  let imageUrl
+  try {
+      const response = await axios.post(
+        "https://api.imgbb.com/1/upload?key=ecacc87058e6a14e92023eaa1a1cd418",formData
+      );
+      imageUrl = response.data.data.url;
+  } catch (error) {
+    console.log(error.response.data)
+  }
+
+  const newStudent = {
+    image: imageUrl, // Set the image property to the uploaded image URL
+    name,
+    belt_grade,
+    years_of_exp,
+  };
 
   try {
     const student = await StudentModel.create(newStudent);
-    console.log(student);
-
     res.send("Data stored successfully");
   } catch (error) {
     console.error(error);
@@ -60,26 +78,22 @@ app.post("/api/Students", async (req, res) => {
 
 app.post("/api/Students/:id/notes", async (req, res) => {
   const { id } = req.params;
-  const { coach_id, date, note, skills } = req.body;
-  const newSession = { coach_id, date, note, skills };
-
+  const {  session, note, skills } = req.body;
+  const newSession = {  session, note, skills };
   try {
-    const filter = { id };
-    const update = { $push: { coach_notes: newSession } };
-    const result = await StudentModel.findOneAndUpdate(filter, update, {
-      new: true,
-    });
-
-    if (result) {
+    
+      const student = await StudentModel.findOne({ _id: id });
+      console.log(newSession)
+      student.coach_notes.push(newSession);
+      await student.save();
       res.send("Data stored successfully");
-    } else {
-      res.status(404).send("Student not found");
-    }
   } catch (error) {
     console.error(error);
     res.status(500).send("Something went wrong");
   }
 });
+
+
 
 
 app.listen(port, async () => {
