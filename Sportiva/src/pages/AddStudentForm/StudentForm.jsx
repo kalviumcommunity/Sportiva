@@ -1,6 +1,16 @@
 import { useState, useRef } from "react";
-import {Flex,Box,Heading,Image,VStack,FormControl,FormLabel,Input,Button,} from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import {
+  Flex,
+  Box,
+  Heading,
+  Image,
+  VStack,
+  FormControl,
+  FormLabel,
+  Input,
+  Button,
+} from "@chakra-ui/react";
+import { Link, useNavigate } from "react-router-dom";
 import data from "../../components/StudentsListingPage/Data";
 import UploadAndDisplayImage from "./ImageUpload";
 import axios from "axios";
@@ -12,9 +22,9 @@ export default function StudentForm() {
   const [dateOfBirth, setDateOfBirth] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
   const imageButtonRef = useRef();
+  const navigate = useNavigate()
 
-  function addStudent() {
-    console.log("abd");
+  async function addStudent() {
     const newImageURL = URL.createObjectURL(selectedImage);
     const newStudent = {
       id: data.length.toString(),
@@ -25,18 +35,16 @@ export default function StudentForm() {
       coach_notes: [],
     };
     const newImageFile = new FormData();
-    newImageFile.append("image", JSON.stringify(newImageURL));
+    newImageFile.append("image", selectedImage);
     // newStudent.image = newImageFile;
-    data.push(newStudent);
-    axios.post("http://localhost:4006/api/Students/", newStudent);
+    // data.push(newStudent);
+    newImageFile.append("id", newStudent.id);
+    newImageFile.append("name", newStudent.name);
+    newImageFile.append("belt_grade", newStudent.belt_grade);
+    newImageFile.append("years_of_exp", newStudent.years_of_exp);
 
-    console.log(newStudent);
-
-    setName("");
-    setBeltGrade("");
-    setYearsOfExp("");
-    setDateOfBirth("");
-    setSelectedImage("");
+    await axios.post("http://localhost:4006/api/Students/", newImageFile);
+    navigate("/students-listing")
   }
   return (
     <Box bgRepeat="no-repeat" bgSize="cover" paddingTop="20px" px="31px">
@@ -80,7 +88,6 @@ export default function StudentForm() {
             <Heading fontSize="26px" ml="495px">
               Add Student
             </Heading>
-            <Link to="/students-listing">
               <Button
                 h="36px"
                 w="105px"
@@ -92,7 +99,6 @@ export default function StudentForm() {
               >
                 Add
               </Button>
-            </Link>
           </Flex>
           <Flex w="100%">
             <Box

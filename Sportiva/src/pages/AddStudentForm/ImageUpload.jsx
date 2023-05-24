@@ -9,19 +9,19 @@ const UploadAndDisplayImage = ({
   return (
     <Box>
       {selectedImage && (
-          <Center>
-            <Box>
-              <Image
-                h="210px"
-                w="210px"
-                src={URL.createObjectURL(selectedImage)}
-                position="relative"
-                t="10px"
-                padding="0px"
-                borderRadius="10px"
-              />
-            </Box>
-          </Center>
+        <Center>
+          <Box>
+            <Image
+              h="210px"
+              w="210px"
+              src={selectedImage}
+              position="relative"
+              t="10px"
+              padding="0px"
+              borderRadius="10px"
+            />
+          </Box>
+        </Center>
       )}
       {!selectedImage && (
         <Flex
@@ -43,12 +43,13 @@ const UploadAndDisplayImage = ({
       )}
       <Input
         type="file"
-        name="myImage"
+        name="poster"
         mt={4}
         ref={imageButtonRef}
         onChange={(event) => {
           setSelectedImage(event.target.files[0]);
         }}
+        // enctype="multipart/form-data"
         display="none"
       />
     </Box>
@@ -59,6 +60,7 @@ UploadAndDisplayImage.propTypes = {
   selectedImage: PropTypes.object,
   imageButtonRef: PropTypes.object,
   setSelectedImage: PropTypes.func.isRequired,
+  newImageURL:PropTypes.func
 };
 
 export default UploadAndDisplayImage;
