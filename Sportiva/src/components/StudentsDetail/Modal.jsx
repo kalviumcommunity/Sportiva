@@ -1,4 +1,4 @@
-import {Modal,ModalOverlay,ModalContent,ModalHeader,ModalFooter,ModalBody,ModalCloseButton,Button,} from "@chakra-ui/react";
+import {Modal,ModalOverlay,ModalContent,ModalHeader,ModalFooter,ModalBody,ModalCloseButton,Button,Textarea} from "@chakra-ui/react";
 import { useState,useRef,useEffect } from "react";
 import { Image, 
   Flex, 
@@ -192,7 +192,7 @@ export default function CustomModal({newSessionCount}) {
                   <Flex direction={"row"} mb="22px">
                     <FormControl>
                       <FormLabel fontWeight="semibold">Coach Note</FormLabel>
-                      <Input
+                      <Textarea
                         type="text"
                         w="785px"
                         h="180px"
@@ -204,7 +204,6 @@ export default function CustomModal({newSessionCount}) {
                         ref={coachNoteRef}
                         style={{ textAlign: "left" }}
                         pb="120px"
-
                       />
                     </FormControl>
                   </Flex>
