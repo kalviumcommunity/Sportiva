@@ -23,13 +23,6 @@ export default function CustomModal({newSessionCount}) {
     date: `Session${newSessionCount}`,
   });
 
-  useEffect(() => {
-    if (coachNoteRef.current) {
-      coachNoteRef.current.focus();
-      coachNoteRef.current.setSelectionRange(0, 0);
-    }
-  }, []);
-
   const handleClose = () => {
     setIsOpen(false);
   };
