@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 const { coachNotesSchema } = require("../models/coachNote");
 
 const studentSchema = mongoose.Schema({
-  id: String,
   image: String,
   name: String,
   belt_grade: String,
