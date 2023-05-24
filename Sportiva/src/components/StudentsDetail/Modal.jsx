@@ -1,5 +1,5 @@
 import {Modal,ModalOverlay,ModalContent,ModalHeader,ModalFooter,ModalBody,ModalCloseButton,Button,Textarea} from "@chakra-ui/react";
-import { useState,useRef,useEffect } from "react";
+import { useState,useRef} from "react";
 import { Image, 
   Flex, 
   FormControl, 
