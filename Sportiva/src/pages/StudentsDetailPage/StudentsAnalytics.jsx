@@ -20,7 +20,6 @@ export default function StudentAnalytics() {
     }
     fetchStudentData();
   }, [_id]);
-
   if (!student) {
     return <div>Student not found</div>;
   }
