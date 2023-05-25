@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const axios = require("axios")
 const cors = require("cors");
@@ -8,7 +9,6 @@ const multer = require("multer")
 const FormData = require("form-data")
 const upload = multer({storage : multer.memoryStorage()})
 const { coachNotesSchema, CoachNoteModel } = require("../models/coachNote.js");
-require("dotenv").config();
 
 
 const app = express();
