@@ -1,14 +1,5 @@
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  Button,
-} from "@chakra-ui/react";
-import { useState } from "react";
+import {Modal,ModalOverlay,ModalContent,ModalHeader,ModalFooter,ModalBody,ModalCloseButton,Button,Textarea} from "@chakra-ui/react";
+import { useState,useRef} from "react";
 import { Image, 
   Flex, 
   FormControl, 
@@ -20,7 +11,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 
 export default function CustomModal({newSessionCount}) {
-   const { isAuthenticated } = useAuth0();
+  const { isAuthenticated } = useAuth0();
   const [isOpen, setIsOpen] = useState(false);
   const [newNote, setNewNote] = useState("");
   const [date, setDate] = useState(newSessionCount);
@@ -33,7 +24,6 @@ export default function CustomModal({newSessionCount}) {
     reflex: "",
     date: `Session${newSessionCount}`,
   });
-
 
   const handleClose = () => {
     setIsOpen(false);
@@ -199,7 +189,7 @@ export default function CustomModal({newSessionCount}) {
                   <Flex direction={"row"} mb="22px">
                     <FormControl>
                       <FormLabel fontWeight="semibold">Coach Note</FormLabel>
-                      <Input
+                      <Textarea
                         type="text"
                         w="785px"
                         h="180px"
@@ -208,13 +198,23 @@ export default function CustomModal({newSessionCount}) {
                         borderRadius="none"
                         value={newNote}
                         onChange={(e) => setNewNote(e.target.value)}
+                        ref={coachNoteRef}
+                        style={{ textAlign: "left" }}
+                        pb="120px"
                       />
                     </FormControl>
                   </Flex>
                 </Flex>
               </ModalBody>
               <ModalFooter pr="79px">
-                <Button bgColor="#9E0033" color="white" w="100px" h="40px" mr="330px" onClick={handleSubmit}>
+                <Button
+                  bgColor="#9E0033"
+                  color="white"
+                  w="100px"
+                  h="40px"
+                  mr="330px"
+                  onClick={handleSubmit}
+                >
                   ADD
                 </Button>
               </ModalFooter>
@@ -227,5 +227,5 @@ export default function CustomModal({newSessionCount}) {
 }
 
 CustomModal.propTypes = {
-  newSessionCount: PropTypes.object,
+  newSessionCount: PropTypes.number,
 };
