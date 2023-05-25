@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const axios = require("axios")
 const cors = require("cors");
-const { connection } = require("../Config/db");
+const { connection } = require("../config/db");
 const { StudentModel } = require("../models/Student");
 const { userInfo } = require("os");
 const multer = require("multer")
