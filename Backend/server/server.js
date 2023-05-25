@@ -8,7 +8,7 @@ const multer = require("multer")
 const FormData = require("form-data")
 const upload = multer({storage : multer.memoryStorage()})
 const { coachNotesSchema, CoachNoteModel } = require("../models/coachNote.js");
-require("dotenv").config()
+
 
 
 const app = express();
@@ -39,16 +39,15 @@ app.get("/api/Students/:id", async (req, res) => {
     }
   } catch (error) {
     console.error(error);
-    // res.status(500).json({ message: "Error occurred while fetching student" });
     res.send(error)
   }
 });
 
+require("dotenv").config();
 app.post("/api/Students", upload.single("image"), async (req, res) => {
 const { name, belt_grade, years_of_exp } = req.body;
 const apiKey = process.env.API_KEY;
   const formData = new FormData();
-  // formData.append("key", "ecacc87058e6a14e92023eaa1a1cd418"); // Replace with your ImgBB API key
   formData.append("image", req.file.buffer.toString("base64"));
 
   let imageUrl
@@ -62,7 +61,7 @@ const apiKey = process.env.API_KEY;
   }
 
   const newStudent = {
-    image: imageUrl, // Set the image property to the uploaded image URL
+    image: imageUrl,
     name,
     belt_grade,
     years_of_exp,
@@ -85,7 +84,6 @@ app.post("/api/Students/:id/notes", async (req, res) => {
   try {
     
       const student = await StudentModel.findOne({ _id: id });
-      console.log(newSession)
       student.coach_notes.push(newSession);
       await student.save();
       res.send("Data stored successfully");

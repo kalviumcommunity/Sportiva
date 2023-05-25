@@ -50,7 +50,6 @@ const UploadAndDisplayImage = ({
         onChange={(event) => {
           setSelectedImage(event.target.files[0]);
         }}
-        // enctype="multipart/form-data"
         display="none"
       />
     </Box>

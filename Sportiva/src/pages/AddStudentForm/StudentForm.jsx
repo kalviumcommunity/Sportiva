@@ -28,8 +28,7 @@ export default function StudentForm() {
   async function addStudent() {
     const newImageURL = URL.createObjectURL(selectedImage);
     setImageURL(newImageURL);
-    console.log(newImageURL)
-    const newStudent = {
+      const newStudent = {
       id: data.length.toString(),
       name: name,
       years_of_exp: yearsOfExp,
@@ -39,8 +38,6 @@ export default function StudentForm() {
     };
     const newImageFile = new FormData();
     newImageFile.append("image", selectedImage);
-    // newStudent.image = newImageFile;
-    // data.push(newStudent);
     newImageFile.append("id", newStudent.id);
     newImageFile.append("name", newStudent.name);
     newImageFile.append("belt_grade", newStudent.belt_grade);
