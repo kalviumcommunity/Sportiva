@@ -1,20 +1,17 @@
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  Button,
+import {Modal,ModalOverlay,ModalContent,ModalHeader,ModalFooter,ModalBody,ModalCloseButton,Button,Textarea} from "@chakra-ui/react";
+import { useState,useRef} from "react";
+import { Image, 
+  Flex, 
+  FormControl, 
+  FormLabel, 
+  Input 
 } from "@chakra-ui/react";
-
-import { useState } from "react";
-import { Image, Flex, FormControl, FormLabel, Input } from "@chakra-ui/react";
 import PropTypes from "prop-types";
-import axios from "axios";
+import { useAuth0 } from "@auth0/auth0-react";
 
-export default function CustomModal({ newSessionCount, id }) {
+
+export default function CustomModal({newSessionCount}) {
+  const { isAuthenticated } = useAuth0();
   const [isOpen, setIsOpen] = useState(false);
   const [newNote, setNewNote] = useState("");
   const [date, setDate] = useState(newSessionCount);
@@ -50,12 +47,14 @@ export default function CustomModal({ newSessionCount, id }) {
 
   return (
     <>
-        <Image
-          src="/images/AddProperties.png"
-          pr="66px"
-          onClick={handleOpen}
-          display={isOpen ? "none" : "block"}
-        />
+    {isAuthenticated && (
+      <Image
+        src="/images/AddProperties.png"
+        pr="66px"
+        onClick={handleOpen}
+        display={isOpen ? "none" : "block"}
+      />
+    )}
       {isOpen && (
         <Flex
           position="fixed"
@@ -221,7 +220,7 @@ export default function CustomModal({ newSessionCount, id }) {
                   <Flex direction={"row"} mb="22px">
                     <FormControl>
                       <FormLabel fontWeight="semibold">Coach Note</FormLabel>
-                      <Input
+                      <Textarea
                         type="text"
                         w="785px"
                         h="180px"
@@ -230,6 +229,9 @@ export default function CustomModal({ newSessionCount, id }) {
                         borderRadius="none"
                         value={newNote}
                         onChange={(e) => setNewNote(e.target.value)}
+                        ref={coachNoteRef}
+                        style={{ textAlign: "left" }}
+                        pb="120px"
                       />
                     </FormControl>
                   </Flex>
