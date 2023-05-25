@@ -1,9 +1,10 @@
 import { Flex, Box, Heading, Button } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function NavBar() {
+   const { logout } = useAuth0();
   return (
-    
       <Box
         bgRepeat="no-repeat"
         bgSize="cover"
@@ -28,6 +29,7 @@ export default function NavBar() {
             h="36px"
             fontSize={12}
             fontWeight="semibold"
+            onClick={() => logout()}
           >
             Sign out
           </Button>
