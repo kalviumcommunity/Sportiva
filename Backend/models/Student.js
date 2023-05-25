@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { coachNotesSchema } = require("../models/coachNote");
+const { coachNotesSchema } = require("./coachNote");
 
 const studentSchema = mongoose.Schema({
   image: String,
