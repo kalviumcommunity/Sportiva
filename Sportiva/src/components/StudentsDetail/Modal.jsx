@@ -16,24 +16,31 @@ export default function CustomModal({newSessionCount}) {
   const [newNote, setNewNote] = useState("");
   const [date, setDate] = useState(newSessionCount);
   const [newSkills, setNewSkills] = useState({
-    speed: "",
-    footwork: "",
-    stamina: "",
-    agility: "",
-    flexibility: "",
-    reflex: "",
-    date: `Session${newSessionCount}`,
+    session: `Session ${newSessionCount}`,
+    skills: {
+      speed: "",
+      footwork: "",
+      stamina: "",
+      agility: "",
+      flexibility: "",
+      reflex: "",
+    },
   });
 
   const handleClose = () => {
+    window.location.reload();
     setIsOpen(false);
   };
 
   const handleOpen = () => {
     setIsOpen(true);
   };
-
   const handleSubmit = () => {
+    axios.post(`http://localhost:4006/api/Students/${id}/notes`, {
+      note: newNote,
+      skills: newSkills.skills,
+      session: newSkills.session,
+    });
     setDate(date + 1);
     handleClose();
   };
@@ -92,7 +99,13 @@ export default function CustomModal({newSessionCount}) {
                         borderRadius="none"
                         value={newSkills.speed}
                         onChange={(e) =>
-                          setNewSkills({ ...newSkills, speed: e.target.value })
+                          setNewSkills({
+                            ...newSkills,
+                            skills: {
+                              ...newSkills.skills,
+                              speed: e.target.value,
+                            },
+                          })
                         }
                       />
                     </FormControl>
@@ -109,7 +122,10 @@ export default function CustomModal({newSessionCount}) {
                         onChange={(e) =>
                           setNewSkills({
                             ...newSkills,
-                            footwork: e.target.value,
+                            skills: {
+                              ...newSkills.skills,
+                              footwork: e.target.value,
+                            },
                           })
                         }
                       />
@@ -127,7 +143,10 @@ export default function CustomModal({newSessionCount}) {
                         onChange={(e) =>
                           setNewSkills({
                             ...newSkills,
-                            stamina: e.target.value,
+                            skills: {
+                              ...newSkills.skills,
+                              stamina: e.target.value,
+                            },
                           })
                         }
                       />
@@ -147,7 +166,10 @@ export default function CustomModal({newSessionCount}) {
                         onChange={(e) =>
                           setNewSkills({
                             ...newSkills,
-                            agility: e.target.value,
+                            skills: {
+                              ...newSkills.skills,
+                              agility: e.target.value,
+                            },
                           })
                         }
                       />
@@ -165,7 +187,10 @@ export default function CustomModal({newSessionCount}) {
                         onChange={(e) =>
                           setNewSkills({
                             ...newSkills,
-                            flexibility: e.target.value,
+                            skills: {
+                              ...newSkills.skills,
+                              flexibility: e.target.value,
+                            },
                           })
                         }
                       />
@@ -181,7 +206,13 @@ export default function CustomModal({newSessionCount}) {
                         borderRadius="none"
                         value={newSkills.reflex}
                         onChange={(e) =>
-                          setNewSkills({ ...newSkills, reflex: e.target.value })
+                          setNewSkills({
+                            ...newSkills,
+                            skills: {
+                              ...newSkills.skills,
+                              reflex: e.target.value,
+                            },
+                          })
                         }
                       />
                     </FormControl>
