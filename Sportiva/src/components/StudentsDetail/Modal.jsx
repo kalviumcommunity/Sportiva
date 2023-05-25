@@ -7,9 +7,11 @@ import { Image,
   Input 
 } from "@chakra-ui/react";
 import PropTypes from "prop-types";
+import { useAuth0 } from "@auth0/auth0-react";
+
 
 export default function CustomModal({newSessionCount}) {
-  const coachNoteRef = useRef(null);
+  const { isAuthenticated } = useAuth0();
   const [isOpen, setIsOpen] = useState(false);
   const [newNote, setNewNote] = useState("");
   const [date, setDate] = useState(newSessionCount);
@@ -38,12 +40,14 @@ export default function CustomModal({newSessionCount}) {
 
   return (
     <>
+    {isAuthenticated && (
       <Image
         src="/images/AddProperties.png"
         pr="66px"
         onClick={handleOpen}
         display={isOpen ? "none" : "block"}
       />
+    )}
       {isOpen && (
         <Flex
           position="fixed"
