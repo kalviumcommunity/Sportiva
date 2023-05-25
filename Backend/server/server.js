@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const axios = require("axios")
 const cors = require("cors");
@@ -42,7 +43,6 @@ app.get("/api/Students/:id", async (req, res) => {
   }
 });
 
-require("dotenv").config();
 app.post("/api/Students", upload.single("image"), async (req, res) => {
 const { name, belt_grade, years_of_exp } = req.body;
 const apiKey = process.env.API_KEY;
