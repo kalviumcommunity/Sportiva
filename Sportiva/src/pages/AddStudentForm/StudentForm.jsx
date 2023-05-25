@@ -11,7 +11,6 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { Link, useNavigate } from "react-router-dom";
-import data from "../../components/StudentsListingPage/Data";
 import UploadAndDisplayImage from "./ImageUpload";
 import axios from "axios";
 
