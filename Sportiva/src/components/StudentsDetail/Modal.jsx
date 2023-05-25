@@ -50,14 +50,12 @@ export default function CustomModal({ newSessionCount, id }) {
 
   return (
     <>
-      {/* {isAuthenticated && ( */}
         <Image
           src="/images/AddProperties.png"
           pr="66px"
           onClick={handleOpen}
           display={isOpen ? "none" : "block"}
         />
-      {/* )} */}
       {isOpen && (
         <Flex
           position="fixed"
