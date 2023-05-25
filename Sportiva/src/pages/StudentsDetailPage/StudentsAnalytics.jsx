@@ -1,14 +1,26 @@
 import { Box, Text, Flex, Image } from "@chakra-ui/react";
-import data from "../../components/StudentsListingPage/Data";
-import LineGraph from "../../components/StudentsDetail/Graph";
 import { useParams } from "react-router-dom";
-import NavBar from "../../components/StudentsDetail/NavBar";
+import { useEffect, useState } from "react";
 
 export default function StudentAnalytics() {
   const { id } = useParams();
-  const student = data.find((e) => e.id === id);
+  const [student, setStudent] = useState(null);
+
+ useEffect(() => {
+   async function fetchStudentData() {
+     try {
+       const result = await fetch(`http://localhost:4006/api/Students/${id}`);
+       const data = await result.json();
+       setStudent(data);
+     } catch (error) {
+       console.log("Error fetching student data:", error);
+     }
+   }
+   fetchStudentData();
+ }, [id]);
+
   if (!student) {
-    return <Box>Student not found.</Box>;
+    return <div>Student not found</div>;
   }
 
   const parseStudentData = (coachNotes) => {
@@ -20,7 +32,6 @@ export default function StudentAnalytics() {
       flexibility: [],
       reflex: [],
     };
-    
 
     coachNotes.forEach((note) => {
       skills.speed.push(note.skills.speed);
@@ -36,10 +47,9 @@ export default function StudentAnalytics() {
 
   const parsedData = parseStudentData(student.coach_notes);
 
-  
   return (
     <Box>
-      <NavBar newSessionCount={student.coach_notes.length}/>
+      <NavBar newSessionCount={student.coach_notes.length} />
       <Flex>
         <Flex pt="136px" pl="200px">
           <Image
