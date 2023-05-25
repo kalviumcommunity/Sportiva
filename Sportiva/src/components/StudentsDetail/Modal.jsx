@@ -36,11 +36,14 @@ export default function CustomModal({newSessionCount}) {
     setIsOpen(true);
   };
   const handleSubmit = () => {
-    axios.post(`http://localhost:4006/api/Students/${id}/notes`, {
-      note: newNote,
-      skills: newSkills.skills,
-      session: newSkills.session,
-    });
+    axios.post(
+      `https://sportiva-backend.onrender.com/api/Students/${id}/notes`,
+      {
+        note: newNote,
+        skills: newSkills.skills,
+        session: newSkills.session,
+      }
+    );
     setDate(date + 1);
     handleClose();
   };

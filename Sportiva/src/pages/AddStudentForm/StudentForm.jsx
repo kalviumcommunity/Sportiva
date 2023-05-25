@@ -42,7 +42,10 @@ export default function StudentForm() {
     newImageFile.append("belt_grade", newStudent.belt_grade);
     newImageFile.append("years_of_exp", newStudent.years_of_exp);
 
-    await axios.post("http://localhost:4006/api/Students/", newImageFile);
+    await axios.post(
+      "https://sportiva-backend.onrender.com/api/Students/",
+      newImageFile
+    );
     navigate("/students-listing")
   }
   return (

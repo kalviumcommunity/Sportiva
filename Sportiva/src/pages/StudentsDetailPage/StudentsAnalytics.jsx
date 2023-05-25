@@ -11,7 +11,9 @@ export default function StudentAnalytics() {
   useEffect(() => {
     async function fetchStudentData() {
       try {
-        const result = await fetch(`http://localhost:4006/api/Students/${_id}`);
+        const result = await fetch(
+          `https://sportiva-backend.onrender.com/api/Students/${_id}`
+        );
         const data = await result.json();
         setStudent(data);
       } catch (error) {

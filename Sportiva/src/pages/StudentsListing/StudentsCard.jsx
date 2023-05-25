@@ -8,7 +8,9 @@ export default function StudentsCard() {
 
   useEffect(() => {
     async function fetchData() {
-      const result = await fetch("http://localhost:4006/api/Students");
+      const result = await fetch(
+        "https://sportiva-backend.onrender.com/api/Students"
+      );
       const data = await result.json();
       setFilteredData(data);
       setSearchedData(data);
