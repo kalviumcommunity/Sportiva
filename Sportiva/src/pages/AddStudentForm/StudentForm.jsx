@@ -23,6 +23,7 @@ export default function StudentForm() {
   const[imageURL , setImageURL] = useState("")
   const imageButtonRef = useRef();
   const navigate = useNavigate()
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
   async function addStudent() {
     const newImageURL = URL.createObjectURL(selectedImage);
@@ -42,7 +43,7 @@ export default function StudentForm() {
     newImageFile.append("years_of_exp", newStudent.years_of_exp);
 
     await axios.post(
-      "https://sportiva-backend.onrender.com/api/Students/",
+      `${backendUrl}/api/Students/`,
       newImageFile
     );
     navigate("/students-listing")

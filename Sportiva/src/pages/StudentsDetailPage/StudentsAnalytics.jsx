@@ -7,12 +7,13 @@ import LineGraph from "../../components/StudentsDetail/Graph";
 export default function StudentAnalytics() {
   const { id:_id } = useParams();
   const [student, setStudent] = useState(null);
+  const backendUrl = import.meta.env.VITE_BACKEND_URL
 
   useEffect(() => {
     async function fetchStudentData() {
       try {
         const result = await fetch(
-          `https://sportiva-backend.onrender.com/api/Students/${_id}`
+          `${backendUrl}/api/Students/${_id}`
         );
         const data = await result.json();
         setStudent(data);

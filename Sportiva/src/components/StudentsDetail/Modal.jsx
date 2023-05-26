@@ -13,11 +13,13 @@ import axios from "axios";
 
 
 export default function CustomModal({newSessionCount}) {
-    const { id: _id } = useParams();
+  const { id: _id } = useParams();
   const { isAuthenticated } = useAuth0();
   const [isOpen, setIsOpen] = useState(false);
   const [newNote, setNewNote] = useState("");
   const [date, setDate] = useState(newSessionCount);
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
   const [newSkills, setNewSkills] = useState({
     session: `Session ${newSessionCount}`,
     skills: {
@@ -40,7 +42,7 @@ export default function CustomModal({newSessionCount}) {
  const handleSubmit = async () => {
    try {
      const response = await axios.post(
-       `https://sportiva-backend.onrender.com/api/Students/${_id}/notes`,
+       `${backendUrl}/api/Students/${_id}/notes`,
        {
          note: newNote,
          skills: newSkills.skills,

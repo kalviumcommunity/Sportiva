@@ -5,11 +5,13 @@ import ToolBar from "../../components/StudentsListingPage/ToolBar";
 export default function StudentsCard() {
   const [filteredData, setFilteredData] = useState([]);
   const [searchedData, setSearchedData] = useState([]);
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 
   useEffect(() => {
     async function fetchData() {
       const result = await fetch(
-        "https://sportiva-backend.onrender.com/api/Students"
+        `${backendUrl}/api/Students`
       );
       const data = await result.json();
       setFilteredData(data);
