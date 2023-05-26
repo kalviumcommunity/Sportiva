@@ -88,7 +88,6 @@ export default function StudentAnalytics() {
             h={"160px"}
             bg="white"
             border="1px solid gray"
-            borderOpacity="0.2"
           >
             <Text pl="10px" pt="10px">
               {student.coach_notes?.length

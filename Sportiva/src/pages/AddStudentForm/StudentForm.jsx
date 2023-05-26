@@ -28,7 +28,6 @@ export default function StudentForm() {
     const newImageURL = URL.createObjectURL(selectedImage);
     setImageURL(newImageURL);
       const newStudent = {
-      id: data.length.toString(),
       name: name,
       years_of_exp: yearsOfExp,
       belt_grade: beltGrade,

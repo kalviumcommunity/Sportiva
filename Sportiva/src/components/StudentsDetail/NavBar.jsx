@@ -2,10 +2,11 @@ import { Flex, Box, Heading, Image } from "@chakra-ui/react";
 import { Link, useParams } from "react-router-dom";
 import CustomModal from "./Modal";
 import PropTypes from "prop-types";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function NavBar({ newSessionCount }) {
   const { id } = useParams();
-
+  const { isAuthenticated } = useAuth0();
   const handleShareClick = () => {
     const currentUrl = window.location.href;
     navigator.clipboard.writeText(currentUrl).then(function(){
@@ -18,9 +19,11 @@ export default function NavBar({ newSessionCount }) {
     <Box bgRepeat="no-repeat" bgSize="cover" paddingTop="25px">
       <Flex alignItems="center" px={"40px"}>
         <Box>
-          <Link to="/students-listing">
-            <Image src="/images/LeftArrow.png" alt="img" boxSize="40px" />
-          </Link>
+          {isAuthenticated && (
+            <Link to="/students-listing">
+              <Image src="/images/LeftArrow.png" alt="img" boxSize="40px" />
+            </Link>
+          )}
         </Box>
         <Flex flex="1" justifyContent="center">
           <Heading
