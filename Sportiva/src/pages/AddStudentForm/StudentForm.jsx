@@ -23,12 +23,12 @@ export default function StudentForm() {
   const[imageURL , setImageURL] = useState("")
   const imageButtonRef = useRef();
   const navigate = useNavigate()
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
   async function addStudent() {
     const newImageURL = URL.createObjectURL(selectedImage);
     setImageURL(newImageURL);
       const newStudent = {
-      id: data.length.toString(),
       name: name,
       years_of_exp: yearsOfExp,
       belt_grade: beltGrade,
@@ -42,7 +42,10 @@ export default function StudentForm() {
     newImageFile.append("belt_grade", newStudent.belt_grade);
     newImageFile.append("years_of_exp", newStudent.years_of_exp);
 
-    await axios.post("http://localhost:4006/api/Students/", newImageFile);
+    await axios.post(
+      `${backendUrl}/api/Students/`,
+      newImageFile
+    );
     navigate("/students-listing")
   }
   return (

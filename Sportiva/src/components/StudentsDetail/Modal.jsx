@@ -1,5 +1,6 @@
 import {Modal,ModalOverlay,ModalContent,ModalHeader,ModalFooter,ModalBody,ModalCloseButton,Button,Textarea} from "@chakra-ui/react";
-import { useState,useRef} from "react";
+import { useState} from "react";
+import { useParams } from "react-router-dom";
 import { Image, 
   Flex, 
   FormControl, 
@@ -8,13 +9,17 @@ import { Image,
 } from "@chakra-ui/react";
 import PropTypes from "prop-types";
 import { useAuth0 } from "@auth0/auth0-react";
+import axios from "axios";
 
 
 export default function CustomModal({newSessionCount}) {
+  const { id: _id } = useParams();
   const { isAuthenticated } = useAuth0();
   const [isOpen, setIsOpen] = useState(false);
   const [newNote, setNewNote] = useState("");
   const [date, setDate] = useState(newSessionCount);
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
   const [newSkills, setNewSkills] = useState({
     session: `Session ${newSessionCount}`,
     skills: {
@@ -29,22 +34,28 @@ export default function CustomModal({newSessionCount}) {
 
   const handleClose = () => {
     window.location.reload();
-    setIsOpen(false);
   };
 
   const handleOpen = () => {
     setIsOpen(true);
   };
-  const handleSubmit = () => {
-    axios.post(`http://localhost:4006/api/Students/${id}/notes`, {
-      note: newNote,
-      skills: newSkills.skills,
-      session: newSkills.session,
-    });
-    setDate(date + 1);
-    handleClose();
-  };
-
+ const handleSubmit = async () => {
+   try {
+     const response = await axios.post(
+       `${backendUrl}/api/Students/${_id}/notes`,
+       {
+         note: newNote,
+         skills: newSkills.skills,
+         session: newSkills.session,
+       }
+     );
+     setDate(date + 1);
+     handleClose();
+     return response.data; 
+   } catch (error) {
+     throw error;
+   }
+ };
   return (
     <>
     {isAuthenticated && (
@@ -229,7 +240,7 @@ export default function CustomModal({newSessionCount}) {
                         borderRadius="none"
                         value={newNote}
                         onChange={(e) => setNewNote(e.target.value)}
-                        ref={coachNoteRef}
+                        // ref={coachNoteRef}
                         style={{ textAlign: "left" }}
                         pb="120px"
                       />

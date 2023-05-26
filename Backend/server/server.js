@@ -4,11 +4,9 @@ const axios = require("axios")
 const cors = require("cors");
 const { connection } = require("../config/db");
 const { StudentModel } = require("../models/Student");
-const { userInfo } = require("os");
 const multer = require("multer")
 const FormData = require("form-data")
 const upload = multer({storage : multer.memoryStorage()})
-const { coachNotesSchema, CoachNoteModel } = require("../models/coachNote.js");
 
 
 const app = express();

@@ -60,7 +60,7 @@ UploadAndDisplayImage.propTypes = {
   selectedImage: PropTypes.object,
   imageButtonRef: PropTypes.object,
   setSelectedImage: PropTypes.func.isRequired,
-  newImageURL:PropTypes.func
+  newImageURL:PropTypes.string
 };
 
 export default UploadAndDisplayImage;

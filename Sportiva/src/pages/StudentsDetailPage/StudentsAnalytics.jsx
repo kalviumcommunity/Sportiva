@@ -7,11 +7,14 @@ import LineGraph from "../../components/StudentsDetail/Graph";
 export default function StudentAnalytics() {
   const { id:_id } = useParams();
   const [student, setStudent] = useState(null);
+  const backendUrl = import.meta.env.VITE_BACKEND_URL
 
   useEffect(() => {
     async function fetchStudentData() {
       try {
-        const result = await fetch(`http://localhost:4006/api/Students/${_id}`);
+        const result = await fetch(
+          `${backendUrl}/api/Students/${_id}`
+        );
         const data = await result.json();
         setStudent(data);
       } catch (error) {
@@ -86,7 +89,6 @@ export default function StudentAnalytics() {
             h={"160px"}
             bg="white"
             border="1px solid gray"
-            borderOpacity="0.2"
           >
             <Text pl="10px" pt="10px">
               {student.coach_notes?.length
