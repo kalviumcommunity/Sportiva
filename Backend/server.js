@@ -2,8 +2,8 @@ require("dotenv").config();
 const express = require("express");
 const axios = require("axios")
 const cors = require("cors");
-const { connection } = require("../config/db");
-const { StudentModel } = require("../models/Student");
+const { connection } = require("./config/db");
+const { StudentModel } = require("./models/Student");
 const multer = require("multer")
 const FormData = require("form-data")
 const upload = multer({storage : multer.memoryStorage()})
@@ -16,9 +16,14 @@ const port = 4006;
 app.use(cors());
 app.use(express.json());
 
+app.get('/', (req, res)=>{
+   res.send("server is working")
+})
+
 app.get("/api/Students", async(req, res) => {
    try {
     let result = await StudentModel.find({});
+    console.log(result)
     res.send(result);
   } catch (error) {
     console.error(error);
@@ -97,8 +102,8 @@ app.listen(port, async () => {
   try {
     await connection;
     console.log("connected to DB");
+    console.log(`Server is running on port ${port}`);
   } catch (err) {
     console.log(err);
   }
-  console.log(`Server is running on port ${port}`);
 });

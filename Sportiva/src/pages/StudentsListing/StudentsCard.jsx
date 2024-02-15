@@ -9,6 +9,7 @@ export default function StudentsCard() {
 
 
   useEffect(() => {
+    console.log(backendUrl)
     async function fetchData() {
       const result = await fetch(
         `${backendUrl}/api/Students`
